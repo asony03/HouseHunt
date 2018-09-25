@@ -1,0 +1,54 @@
+<%= form_with model: @real_estate_company, local: true do |form| %>
+  <% if @real_estate_company.errors.any? %>
+    <div id="error">
+      <h2>
+        <%= pluralize(@real_estate_company.errors.count,"error") %> prohibited this form from getting submitted.
+      </h2>
+      <ul>
+        <% @real_estate_company.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :website %><br>
+    <%= form.text_field :website %>
+  </p>
+
+  <p>
+    <%= form.label :address %><br>
+    <%= form.text_field :address %>
+  </p>
+
+  <p>
+    <%= form.label :founded %><br>
+    <%= form.text_field :founded %>
+  </p>
+
+  <p>
+    <%= form.label :size %><br>
+    <%= form.text_field :size %>
+  </p>
+
+  <p>
+    <%= form.label :revenue %><br>
+    <%= form.text_field :revenue %>
+  </p>
+
+  <p>
+    <%= form.label :synopsis %><br>
+    <%= form.text_area :synopsis %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+  <br>
+<% end %>
