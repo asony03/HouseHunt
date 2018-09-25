@@ -1,0 +1,15 @@
+<h><strong>List of Real Estate Companies</strong></h>
+<p>
+<table>
+  <% @real_estate_companies.each do |real_estate_company| %>
+    <tr>
+      <td><%= real_estate_company.name %></td>
+      <td><%= link_to 'show', real_estate_company_path(real_estate_company) %></td>
+      <td><%= link_to "Edit", edit_real_estate_company_path(real_estate_company) %></td>
+      <td><%= link_to "Delete", real_estate_company_path(real_estate_company), method: :delete, data: {confirm: "Are you sure"} %></td>
+    </tr>
+  <% end %>
+</table>
+</p>
+<%= link_to "Create New", new_real_estate_company_path %><br>
+<%= link_to "Back", root_path %>

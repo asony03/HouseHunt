@@ -1,0 +1,39 @@
+<h1>
+  <strong><%= @real_estate_company.name %></strong>
+</h1>
+
+<p>
+  <table>
+    <tr>
+      <td>Name</td>
+      <td><%= @real_estate_company.name %></td>
+    </tr>
+    <tr>
+      <td>Website</td>
+      <td><%= @real_estate_company.website %></td>
+    </tr>
+    <tr>
+      <td>Address</td>
+      <td><%= @real_estate_company.address %></td>
+    </tr>
+    <tr>
+      <td>Size</td>
+      <td><%= @real_estate_company.size %></td>
+    </tr>
+    <tr>
+      <td>Founded</td>
+      <td><%= @real_estate_company.founded %></td>
+    </tr>
+    <tr>
+      <td>Revenue</td>
+      <td><%= @real_estate_company.revenue %></td>
+    </tr>
+    <tr>
+      <td>Synopsis</td>
+      <td><%= @real_estate_company.synopsis %></td>
+    </tr>
+  </table>
+</p>
+
+<%= link_to "Edit", edit_real_estate_company_path %>
+<%= link_to 'Back', real_estate_companies_path %>
