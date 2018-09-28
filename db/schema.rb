@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_24_005658) do
+ActiveRecord::Schema.define(version: 2018_09_28_223122) do
 
   create_table "real_estate_companies", force: :cascade do |t|
     t.string "name"
     t.string "website"
-    t.string "address"
+    t.text "address"
     t.string "size"
     t.integer "founded"
     t.string "revenue"
