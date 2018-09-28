@@ -1,54 +1,52 @@
-<%= form_with model: @real_estate_company, local: true do |form| %>
-  <% if @real_estate_company.errors.any? %>
-    <div id="error">
-      <h2>
-        <%= pluralize(@real_estate_company.errors.count,"error") %> prohibited this form from getting submitted.
-      </h2>
+<%= form_with(model: real_estate_company, local: true) do |form| %>
+  <% if real_estate_company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(real_estate_company.errors.count, "error") %> prohibited this real_estate_company from being saved:</h2>
+
       <ul>
-        <% @real_estate_company.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
+      <% real_estate_company.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
       </ul>
     </div>
   <% end %>
 
-  <p>
-    <%= form.label :name %><br>
+  <div class="field">
+    <%= form.label :name %>
     <%= form.text_field :name %>
-  </p>
+  </div>
 
-  <p>
-    <%= form.label :website %><br>
+  <div class="field">
+    <%= form.label :website %>
     <%= form.text_field :website %>
-  </p>
+  </div>
 
-  <p>
-    <%= form.label :address %><br>
-    <%= form.text_field :address %>
-  </p>
+  <div class="field">
+    <%= form.label :address %>
+    <%= form.text_area :address %>
+  </div>
 
-  <p>
-    <%= form.label :founded %><br>
-    <%= form.text_field :founded %>
-  </p>
-
-  <p>
-    <%= form.label :size %><br>
+  <div class="field">
+    <%= form.label :size %>
     <%= form.text_field :size %>
-  </p>
+  </div>
 
-  <p>
-    <%= form.label :revenue %><br>
+  <div class="field">
+    <%= form.label :founded %>
+    <%= form.number_field :founded %>
+  </div>
+
+  <div class="field">
+    <%= form.label :revenue %>
     <%= form.text_field :revenue %>
-  </p>
+  </div>
 
-  <p>
-    <%= form.label :synopsis %><br>
+  <div class="field">
+    <%= form.label :synopsis %>
     <%= form.text_area :synopsis %>
-  </p>
+  </div>
 
-  <p>
+  <div class="actions">
     <%= form.submit %>
-  </p>
-  <br>
+  </div>
 <% end %>

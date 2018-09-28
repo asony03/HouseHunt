@@ -1,39 +1,39 @@
-<h1>
-  <strong><%= @real_estate_company.name %></strong>
-</h1>
+<p id="notice"><%= notice %></p>
 
 <p>
-  <table>
-    <tr>
-      <td>Name</td>
-      <td><%= @real_estate_company.name %></td>
-    </tr>
-    <tr>
-      <td>Website</td>
-      <td><%= @real_estate_company.website %></td>
-    </tr>
-    <tr>
-      <td>Address</td>
-      <td><%= @real_estate_company.address %></td>
-    </tr>
-    <tr>
-      <td>Size</td>
-      <td><%= @real_estate_company.size %></td>
-    </tr>
-    <tr>
-      <td>Founded</td>
-      <td><%= @real_estate_company.founded %></td>
-    </tr>
-    <tr>
-      <td>Revenue</td>
-      <td><%= @real_estate_company.revenue %></td>
-    </tr>
-    <tr>
-      <td>Synopsis</td>
-      <td><%= @real_estate_company.synopsis %></td>
-    </tr>
-  </table>
+  <strong>Name:</strong>
+  <%= @real_estate_company.name %>
 </p>
 
-<%= link_to "Edit", edit_real_estate_company_path %>
+<p>
+  <strong>Website:</strong>
+  <%= @real_estate_company.website %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @real_estate_company.address %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @real_estate_company.size %>
+</p>
+
+<p>
+  <strong>Founded:</strong>
+  <%= @real_estate_company.founded %>
+</p>
+
+<p>
+  <strong>Revenue:</strong>
+  <%= @real_estate_company.revenue %>
+</p>
+
+<p>
+  <strong>Synopsis:</strong>
+  <%= @real_estate_company.synopsis %>
+</p>
+
+<%= link_to 'Edit', edit_real_estate_company_path(@real_estate_company) %> |
 <%= link_to 'Back', real_estate_companies_path %>
