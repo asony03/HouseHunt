@@ -1,4 +1,5 @@
 class RealEstateCompaniesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_real_estate_company, only: [:show, :edit, :update, :destroy]
 
   # GET /real_estate_companies

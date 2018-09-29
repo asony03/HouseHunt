@@ -2,6 +2,7 @@ module SessionsHelper
   # Logs in the given user.
   def log_in(user)
     session[:user_id] = user.id
+    session[:role] = user.role
   end
 
   # Returns the current logged-in user (if any).
@@ -20,5 +21,21 @@ module SessionsHelper
   def log_out
     session.delete(:user_id)
     @current_user = nil
+  end
+
+  def admin?
+    session[:role] == User::ROLE_ADMIN
+  end
+
+  def realtor?
+    session[:role] == User::ROLE_REALTOR
+  end
+
+  def house_hunter?
+    session[:role] == User::ROLE_HOUSE_HUNTER
+  end
+
+  def switch_role(new_role)
+    session[:role] = new_role
   end
 end

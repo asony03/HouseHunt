@@ -1,4 +1,5 @@
 class HouseStylesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_house_style, only: [:show, :edit, :update, :destroy]
 
   # GET /house_styles
