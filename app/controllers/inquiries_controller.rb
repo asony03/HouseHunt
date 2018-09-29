@@ -15,17 +15,21 @@ class InquiriesController < ApplicationController
 
   # GET /inquiries/new
   def new
+    @houses = House.all
     @inquiry = Inquiry.new
   end
 
   # GET /inquiries/1/edit
   def edit
+    @houses = House.all
   end
 
   # POST /inquiries
   # POST /inquiries.json
   def create
+    @houses = House.all
     @inquiry = Inquiry.new(inquiry_params)
+    @inquiry.user_id = current_user.id
 
     respond_to do |format|
       if @inquiry.save
@@ -41,6 +45,7 @@ class InquiriesController < ApplicationController
   # PATCH/PUT /inquiries/1
   # PATCH/PUT /inquiries/1.json
   def update
+    @houses = House.all
     respond_to do |format|
       if @inquiry.update(inquiry_params)
         format.html { redirect_to @inquiry, notice: 'Inquiry was successfully updated.' }

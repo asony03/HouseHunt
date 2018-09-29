@@ -12,13 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :user %>
-    <%= form.text_field :user %>
-  </div>
-
-  <div class="field">
     <%= form.label :house %>
-    <%= form.text_field :house %>
+    <%= form.collection_select(:house_id, @houses, :id, :name) %>
   </div>
 
   <div class="field">
@@ -28,7 +23,7 @@
 
   <div class="field">
     <%= form.label :msg %>
-    <%= form.text_field :msg %>
+    <%= form.text_area :msg %>
   </div>
 
   <div class="actions">

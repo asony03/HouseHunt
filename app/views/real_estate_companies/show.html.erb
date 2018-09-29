@@ -35,5 +35,8 @@
   <%= @real_estate_company.synopsis %>
 </p>
 
+<% if !house_hunter? %>
 <%= link_to 'Edit', edit_real_estate_company_path(@real_estate_company) %> |
-<%= link_to 'Back', real_estate_companies_path %>
+<% end %>
+<%= link_to 'Back', :back %>
+

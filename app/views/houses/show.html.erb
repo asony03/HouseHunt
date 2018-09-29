@@ -54,16 +54,18 @@
   <strong>Contact:</strong>
   <%= @house.contact %>
 </p>
-
+<% if !house_hunter? %>
 <p>
   <strong>Potential buyers:</strong>
   <%= "**need to display**" %>
 </p>
-
+<% end %>
 <p>
   <strong>Interested:</strong>
   <%= "**need to display**" %>
 </p>
 
+<% if admin? || (current_user.id == @house.user_id)%>
 <%= link_to 'Edit', edit_house_path(@house) %> |
-<%= link_to 'Back', houses_path %>
+<% end %>
+<%= link_to 'Back', :back %>
