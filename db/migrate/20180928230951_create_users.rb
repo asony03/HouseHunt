@@ -9,7 +9,7 @@ class CreateUsers < ActiveRecord::Migration[5.2]
       t.boolean :is_admin
       t.boolean :is_realtor
       t.boolean :is_house_hunter
-      t.references :RealEstateCompany, foreign_key: true
+      t.references :real_estate_company, foreign_key: true
 
       t.timestamps
     end
