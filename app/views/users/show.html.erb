@@ -40,5 +40,9 @@
   <%= @user.real_estate_company_id %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% if logged_in? %>
+  <%= link_to 'Edit', edit_user_path(@user) %> |
+  <%= link_to 'Back', welcome_index_path %>
+<% else %>
+  <%= link_to 'Login', login_path %>
+<% end %>
