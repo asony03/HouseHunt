@@ -1,4 +1,5 @@
 class InquiriesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_inquiry, only: [:show, :edit, :update, :destroy]
 
   # GET /inquiries

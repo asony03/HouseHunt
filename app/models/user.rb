@@ -11,4 +11,19 @@ class User < ApplicationRecord
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, allow_nil: true
+
+
+  ROLE_HOUSE_HUNTER = 1
+  ROLE_REALTOR = 2
+  ROLE_ADMIN = 3
+
+  def role
+    if is_admin?
+      ROLE_ADMIN
+    elsif is_realtor?
+      ROLE_REALTOR
+    else
+      ROLE_HOUSE_HUNTER
+    end
+  end
 end
