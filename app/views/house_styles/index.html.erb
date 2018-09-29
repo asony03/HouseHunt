@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>House Styles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @house_styles.each do |house_style| %>
+      <tr>
+        <td><%= house_style.name %></td>
+        <td><%= link_to 'Show', house_style %></td>
+        <td><%= link_to 'Edit', edit_house_style_path(house_style) %></td>
+        <td><%= link_to 'Destroy', house_style, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New House Style', new_house_style_path %>
