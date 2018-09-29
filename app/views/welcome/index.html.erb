@@ -1,6 +1,3 @@
 <% if logged_in? %>
-  <p><%= link_to 'List Users', users_path %></p>
-  <p><%= link_to 'Admin Console', '/admin_console' %></p>
-  <p><%= link_to 'Realtor Console', '/realtor_console' %></p>
-  <p><%= link_to 'House Hunter Console', '/house_hunter_console' %></p>
+  <%= render 'console_actions' %>
 <% end %>
