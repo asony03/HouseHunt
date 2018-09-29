@@ -18,12 +18,12 @@
 
   <div class="field">
     <%= form.label :realtor %>
-    <%= form.collection_select(:user, @users, :id, :name) %>
+    <%= form.collection_select(:user_id, @users, :id, :name) %>
   </div>
 
   <div class="field">
     <%= form.label :house_style %>
-    <%= form.collection_select(:house_style, @house_styles, :id, :name) %>
+    <%= form.collection_select(:house_style_id, @house_styles, :id, :name) %>
   </div>
 
   <div class="field">
@@ -53,7 +53,7 @@
 
   <div class="field">
     <%= form.label :basement %>
-    <%= form.text_field :basement %>
+    <%= form.check_box :basement %>
   </div>
 
   <div class="field">
