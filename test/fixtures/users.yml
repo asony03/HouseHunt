@@ -5,19 +5,19 @@ one:
   email: MyString
   password_digest: MyString
   phone: MyString
-  preferred_cnt_menthod: MyString
+  preferred_contact_method: MyString
   is_admin: false
   is_realtor: false
   is_house_hunter: false
-  RealEstateCompany: one
+  real_estate_company_id: one
 
 two:
   name: MyString
   email: MyString
   password_digest: MyString
   phone: MyString
-  preferred_cnt_menthod: MyString
+  preferred_contact_method: MyString
   is_admin: false
   is_realtor: false
   is_house_hunter: false
-  RealEstateCompany: two
+  real_estate_company_id: two
