@@ -11,18 +11,13 @@
 </p>
 
 <p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
-</p>
-
-<p>
   <strong>Phone:</strong>
   <%= @user.phone %>
 </p>
 
 <p>
-  <strong>Preferred cnt menthod:</strong>
-  <%= @user.preferred_cnt_menthod %>
+  <strong>Preferred contact method:</strong>
+  <%= @user.preferred_contact_method %>
 </p>
 
 <p>
@@ -42,7 +37,7 @@
 
 <p>
   <strong>Realestatecompany:</strong>
-  <%= @user.RealEstateCompany %>
+  <%= @user.RealEstateCompany_id %>
 </p>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

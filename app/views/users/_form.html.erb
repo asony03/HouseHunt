@@ -22,8 +22,13 @@
   </div>
 
   <div class="field">
-    <%= form.label :password_digest %>
-    <%= form.text_field :password_digest %>
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation %>
   </div>
 
   <div class="field">
@@ -32,8 +37,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :preferred_cnt_menthod %>
-    <%= form.text_field :preferred_cnt_menthod %>
+    <%= form.label :preferred_contact_method %>
+    <%= form.text_field :preferred_contact_method %>
   </div>
 
   <div class="field">
@@ -52,8 +57,7 @@
   </div>
 
   <div class="field">
-    <%= form.label :RealEstateCompany_id %>
-    <%= form.text_field :RealEstateCompany_id %>
+    <%= form.collection_select(:RealEstateCompany_id, @real_estate_companies, :id, :name) %>
   </div>
 
   <div class="actions">

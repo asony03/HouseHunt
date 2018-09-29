@@ -15,15 +15,18 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    @real_estate_companies = RealEstateCompany.all
   end
 
   # GET /users/1/edit
   def edit
+    @real_estate_companies = RealEstateCompany.all
   end
 
   # POST /users
   # POST /users.json
   def create
+    @real_estate_companies = RealEstateCompany.all
     @user = User.new(user_params)
 
     respond_to do |format|
@@ -40,6 +43,7 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    @real_estate_companies = RealEstateCompany.all
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -69,6 +73,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :password_digest, :phone, :preferred_cnt_menthod, :is_admin, :is_realtor, :is_house_hunter, :RealEstateCompany_id)
+      params.require(:user).permit(:name, :email, :password, :password_confirmation, :phone, :preferred_contact_method, :is_admin, :is_realtor, :is_house_hunter, :RealEstateCompany_id)
     end
 end
