@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :houses
   resources :users
   resources :house_styles
   get 'welcome/index'
