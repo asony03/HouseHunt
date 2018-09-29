@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  belongs_to :RealEstateCompany
+  belongs_to :real_estate_company
   
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 50 }
