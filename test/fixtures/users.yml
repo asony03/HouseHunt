@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  email: MyString
+  password_digest: MyString
+  phone: MyString
+  preferred_cnt_menthod: MyString
+  is_admin: false
+  is_realtor: false
+  is_house_hunter: false
+  RealEstateCompany: one
+
+two:
+  name: MyString
+  email: MyString
+  password_digest: MyString
+  phone: MyString
+  preferred_cnt_menthod: MyString
+  is_admin: false
+  is_realtor: false
+  is_house_hunter: false
+  RealEstateCompany: two
