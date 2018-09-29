@@ -16,7 +16,8 @@
       <th>Basement</th>
       <th>Owner</th>
       <th>Contact</th>
-      <th colspan="3"></th>
+      <% if !house_hunter? %><th></th><% end %>
+      <th></th>
     </tr>
   </thead>
 
@@ -35,8 +36,7 @@
         <td><%= house.owner %></td>
         <td><%= house.contact %></td>
         <td><%= link_to 'Show', house %></td>
-        <td><%= link_to 'Edit', edit_house_path(house) %></td>
-        <td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% if !house_hunter? %><td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
       </tr>
     <% end %>
   </tbody>
@@ -44,4 +44,7 @@
 
 <br>
 
+<% if !house_hunter? %>
 <%= link_to 'New House', new_house_path %>
+<% end %>
+<%= link_to 'Back', welcome_index_path %>

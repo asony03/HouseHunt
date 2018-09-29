@@ -42,7 +42,7 @@
 
 <% if logged_in? %>
   <%= link_to 'Edit', edit_user_path(@user) %> |
-  <%= link_to 'Back', welcome_index_path %>
+  <%= link_to 'Back', :back %>
 <% else %>
   <%= link_to 'Login', login_path %>
 <% end %>
