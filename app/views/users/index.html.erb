@@ -8,11 +8,6 @@
       <th>Name</th>
       <th>Email</th>
       <th>Phone</th>
-      <th>Preferred contact method</th>
-      <th>Is admin</th>
-      <th>Is realtor</th>
-      <th>Is house hunter</th>
-      <th>Realestatecompany</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,11 +18,6 @@
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= user.phone %></td>
-        <td><%= user.preferred_contact_method %></td>
-        <td><%= user.is_admin %></td>
-        <td><%= user.is_realtor %></td>
-        <td><%= user.is_house_hunter %></td>
-        <td><%= user.RealEstateCompany_id %></td>
         <td><%= link_to 'Show', user %></td>
         <td><%= link_to 'Edit', edit_user_path(user) %></td>
         <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
