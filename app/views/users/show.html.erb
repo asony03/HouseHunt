@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @user.phone %>
+</p>
+
+<p>
+  <strong>Preferred contact method:</strong>
+  <%= @user.preferred_contact_method %>
+</p>
+
+<p>
+  <strong>Is admin:</strong>
+  <%= @user.is_admin %>
+</p>
+
+<p>
+  <strong>Is realtor:</strong>
+  <%= @user.is_realtor %>
+</p>
+
+<p>
+  <strong>Is house hunter:</strong>
+  <%= @user.is_house_hunter %>
+</p>
+
+<p>
+  <strong>Realestatecompany:</strong>
+  <%= @user.RealEstateCompany_id %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

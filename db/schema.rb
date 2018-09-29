@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_28_223122) do
+ActiveRecord::Schema.define(version: 2018_09_28_230951) do
 
   create_table "real_estate_companies", force: :cascade do |t|
     t.string "name"
@@ -22,6 +22,21 @@ ActiveRecord::Schema.define(version: 2018_09_28_223122) do
     t.text "synopsis"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.string "phone"
+    t.string "preferred_cnt_menthod"
+    t.boolean "is_admin"
+    t.boolean "is_realtor"
+    t.boolean "is_house_hunter"
+    t.integer "RealEstateCompany_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["RealEstateCompany_id"], name: "index_users_on_RealEstateCompany_id"
   end
 
 end
