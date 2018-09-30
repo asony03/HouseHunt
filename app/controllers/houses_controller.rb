@@ -72,18 +72,19 @@ class HousesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_house
-      @house = House.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def house_params
-      params.require(:house).permit(:name, :real_estate_company_id, :user_id, :house_style_id, :location, :sq_ft, :year, :price, :floors, :basement, :owner, :contact, images: [])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_house
+    @house = House.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def house_params
+    params.require(:house).permit(:name, :real_estate_company_id, :user_id, :house_style_id, :location, :sq_ft, :year, :price, :floors, :basement, :owner, :contact, images: [])
+  end
 
   def initLists
     @house_styles = HouseStyle.all
-    @inquiries = Inquiry.where(user_id: current_user.id, house_id: @house.id)
+    @inquiries = Inquiry.where(user_id: current_user.id, house_id: @house.id) unless @house.nil?
   end
 end
