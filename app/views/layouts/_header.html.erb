@@ -11,6 +11,11 @@
             </a>
             <ul class="dropdown-menu">
               <li><%= link_to "Profile", current_user, class: 'dropdown-item' %></li>
+              <% if(session[:role] == User::ROLE_REALTOR and current_user.is_house_hunter?) %>
+                <li><%= link_to "Switch to House Hunter", {:controller => "sessions", :action => "update", :role => 1 },:method => :patch, class: 'dropdown-item' %></li>
+              <% elsif(session[:role] == User::ROLE_HOUSE_HUNTER and current_user.is_realtor?) %>
+                <li><%= link_to "Switch to Realtor",{:controller => "sessions", :action => "update", :role => 2 },:method => :patch, class: 'dropdown-item' %></li></li>
+              <%end %>
               <div class="dropdown-divider"></div>
               <li><%= link_to "Log out", logout_path, method: :delete, class: 'dropdown-item' %></li>
             </ul>
