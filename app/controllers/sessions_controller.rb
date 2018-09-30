@@ -14,6 +14,11 @@ class SessionsController < ApplicationController
     end
   end
 
+  def update
+    switch_role params[:role].to_i
+    redirect_to welcome_index_url
+  end
+
   def destroy
     log_out
     redirect_to root_url
