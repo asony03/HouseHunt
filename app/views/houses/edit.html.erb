@@ -2,5 +2,7 @@
 
 <%= render 'form', house: @house %>
 
-<%= link_to 'Show', @house %> |
-<%= link_to 'Back', houses_path %>
+<div class="list-group mx-auto" style="width: 300px; text-align: center">
+	<%= link_to 'Show', @house, class: 'list-group-item list-group-item-action' %>
+	<%= link_to 'Back', houses_path, class: 'list-group-item list-group-item-action' %>
+</div>

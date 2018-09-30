@@ -61,6 +61,7 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :real_estate_company%>
     <%= form.collection_select(:real_estate_company_id, @real_estate_companies, :id, :name) %>
   </div>
 

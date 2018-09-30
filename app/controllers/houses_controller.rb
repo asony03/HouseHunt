@@ -87,6 +87,6 @@ class HousesController < ApplicationController
     @potential_buyer = PotentialBuyer.find_by house_id: @house.id, user_id: current_user.id if house_hunter?
     @house_styles = HouseStyle.all
     @inquiries = Inquiry.where(user_id: current_user.id, house_id: @house.id) unless @house.nil?
-    @potential_buyers = User.joins(:potential_buyers).where(potential_buyers: {house_id: @house.id}) if realtor?
+    @potential_buyers = User.joins(:potential_buyers).where(potential_buyers: {house_id: @house.id}) if realtor? && !@house.nil?
   end
 end

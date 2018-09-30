@@ -1,5 +1,5 @@
 <% if admin? %>
-  <h2>Admin Console</h2>
+  <h4><i class="fa fa-heart-o"></i>Admin Console</h4>
 
   <p>
     <%= link_to 'Create Realtor/House Hunter', new_user_path %>
@@ -22,22 +22,18 @@
 <% end %>
 
 <% if realtor? %>
-  <h2>Realtor Console</h2>
-
-  <p>
-    <%= link_to 'Create Real Estate Company', new_real_estate_company_path %>
-  </p>
-  <p>
-    <%= link_to 'List Houses', houses_path%>
-  </p>
-  <p>
-    <%= link_to 'List Inquiries', inquiries_path%>
-  </p>
+  <%= image_tag 'realtor.jpg', class: 'img-fluid', style: 'margin-top: -24px' %>
+  <br><br>
+  <div class="list-group mx-auto" style="width: 400px; text-align: center">
+    <h4>Realtor Console</h4>
+     <%= link_to 'Create Real Estate Company', new_real_estate_company_path, class: 'list-group-item list-group-item-action' %>
+     <%= link_to 'List Houses', houses_path, class: 'list-group-item list-group-item-action' %>
+     <%= link_to 'List Inquiries', inquiries_path, class: 'list-group-item list-group-item-action' %>
+  </div>
 <% end %>
 
 <% if house_hunter? %>
-  <h2>House Hunter Console</h2>
-
+  <h4>House Hunter Console</h4>
   <p>
     <%= link_to 'List Houses', houses_path%>
   </p>

@@ -10,62 +10,69 @@
       </ul>
     </div>
   <% end %>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+    <div class="form-group col-md-6">
+      <%= form.label :house_style %>
+      <%= form.collection_select :house_style_id, @house_styles, :id, :name, {}, {class: 'form-control'} %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :house_style %>
-    <%= form.collection_select(:house_style_id, @house_styles, :id, :name) %>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <%= form.label :location %>
+      <%= form.text_field :location, class: 'form-control'%>
+    </div>
+
+    <div class="form-group col-md-2">
+      <%= form.label :square_footage %>
+      <%= form.text_field :sq_ft, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-md-2">
+      <%= form.label :built_year %>
+      <%= form.text_field :year, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-md-2">
+      <%= form.label :price %>
+      <%= form.text_field :price, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-md-2">
+      <%= form.label :No_of_floors %>
+      <%= form.text_field :floors, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :location %>
-    <%= form.text_field :location %>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :owner %>
+      <%= form.text_field :owner, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <%= form.label :contact %>
+      <%= form.text_field :contact, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :sq_ft %>
-    <%= form.text_field :sq_ft %>
+  <div class="form-group">
+    <%= form.label :basement %> &nbsp;
+    <%= form.check_box :basement, class: 'checkbox-inline' %>
   </div>
 
-  <div class="field">
-    <%= form.label :year %>
-    <%= form.text_field :year %>
-  </div>
-
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price %>
-  </div>
-
-  <div class="field">
-    <%= form.label :floors %>
-    <%= form.text_field :floors %>
-  </div>
-
-  <div class="field">
-    <%= form.label :basement %>
-    <%= form.check_box :basement %>
-  </div>
-
-  <div class="field">
-    <%= form.label :owner %>
-    <%= form.text_field :owner %>
-  </div>
-
-  <div class="field">
-    <%= form.label :contact %>
-    <%= form.text_field :contact %>
-  </div>
-
-  <div class="field">
+  <div class="form-group">
     <%= form.label :images %>
-    <%= form.file_field :images, multiple: true, direct_upload: true %>
+    <%= form.file_field :images, multiple: true, direct_upload: true, class: 'form-control' %>
   </div>
+
+  <br>
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Save', :class => 'btn btn-primary' %>
   </div>
 <% end %>

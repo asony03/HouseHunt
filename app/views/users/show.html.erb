@@ -20,20 +20,22 @@
   <%= @user.preferred_contact_method %>
 </p>
 
-<p>
-  <strong>Is admin:</strong>
-  <%= @user.is_admin %>
-</p>
+<% if admin? %>
+  <p>
+    <strong>Is admin:</strong>
+    <%= @user.is_admin %>
+  </p>
 
-<p>
-  <strong>Is realtor:</strong>
-  <%= @user.is_realtor %>
-</p>
+  <p>
+    <strong>Is realtor:</strong>
+    <%= @user.is_realtor %>
+  </p>
 
-<p>
-  <strong>Is house hunter:</strong>
-  <%= @user.is_house_hunter %>
-</p>
+  <p>
+    <strong>Is house hunter:</strong>
+    <%= @user.is_house_hunter %>
+  </p>
+  <% end %>
 
 <p>
   <strong>Real Estate Company:</strong>
