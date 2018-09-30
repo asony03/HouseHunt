@@ -9,6 +9,7 @@
       <th>House</th>
       <th>Subject</th>
       <th>Msg</th>
+      <th>Time</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,10 +17,11 @@
   <tbody>
     <% @inquiries.each do |inquiry| %>
       <tr>
-        <td><%= inquiry.user %></td>
-        <td><%= inquiry.house %></td>
+        <td><%= inquiry.user.name %></td>
+        <td><%= inquiry.house.name %></td>
         <td><%= inquiry.subject %></td>
         <td><%= inquiry.msg %></td>
+        <td><%= inquiry.created_at %></td>
         <td><%= link_to 'Show', inquiry %></td>
         <td><%= link_to 'Edit', edit_inquiry_path(inquiry) %></td>
         <td><%= link_to 'Destroy', inquiry, method: :delete, data: { confirm: 'Are you sure?' } %></td>

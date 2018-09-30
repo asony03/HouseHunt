@@ -12,13 +12,8 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :real_estate_company %>
-    <%= form.collection_select(:real_estate_company_id, @real_estate_companies, :id, :name) %>
-  </div>
-
-  <div class="field">
-    <%= form.label :realtor %>
-    <%= form.collection_select(:user_id, @users, :id, :name) %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
   </div>
 
   <div class="field">

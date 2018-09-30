@@ -11,6 +11,7 @@ class HousesController < ApplicationController
   # GET /houses/1
   # GET /houses/1.json
   def show
+    initLists
   end
 
   # GET /houses/new
@@ -29,6 +30,8 @@ class HousesController < ApplicationController
   def create
     initLists
     @house = House.new(house_params)
+    @house.user_id = current_user.id
+    @house.real_estate_company_id = current_user.real_estate_company.id
 
     respond_to do |format|
       if @house.save
@@ -76,12 +79,11 @@ class HousesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def house_params
-      params.require(:house).permit(:real_estate_company_id, :user_id, :house_style_id, :location, :sq_ft, :year, :price, :floors, :basement, :owner, :contact, :potential_buyers)
+      params.require(:house).permit(:name, :real_estate_company_id, :user_id, :house_style_id, :location, :sq_ft, :year, :price, :floors, :basement, :owner, :contact, :potential_buyers)
     end
 
   def initLists
-    @real_estate_companies = RealEstateCompany.all
-    @users = User.all
     @house_styles = HouseStyle.all
+    @inquiries = Inquiry.where(user_id: current_user.id, house_id: @house.id)
   end
 end

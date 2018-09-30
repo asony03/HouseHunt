@@ -1,18 +1,22 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Name:</strong>
+  <%= @house.name %>
+</p>
+<p>
   <strong>Real estate company:</strong>
-  <%= @house.real_estate_company %>
+  <%= @house.real_estate_company.name %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @house.user %>
+  <strong>Realtor :</strong>
+  <%= @house.user.name %>
 </p>
 
 <p>
   <strong>House style:</strong>
-  <%= @house.house_style %>
+  <%= @house.house_style.name %>
 </p>
 
 <p>
@@ -64,6 +68,30 @@
   <strong>Interested:</strong>
   <%= "**need to display**" %>
 </p>
+
+<% if house_hunter? %>
+  <br><h2>Inquiries</h2><br>
+  <% @inquiries.each do |inquiry|  %>
+    <p>
+      <strong>Subject: </strong>
+      <%= inquiry.subject %>
+    </p>
+    <p>
+      <strong>Message: </strong>
+      <%= inquiry.msg %>
+    </p>
+    <% if !inquiry.reply.nil? && !inquiry.empty?  %>
+      <p>
+        <strong>Reply: </strong>
+        <%= inquiry.reply %>
+      </p>
+    <% else %>
+      <p><i>A realtor is yet to reply to this inquiry.</i></p>
+    <% end %>
+  <% end %>
+  <br><h4>Add new Inquiry</h4><br>
+  <%= render 'inquiry_form', inquiry: Inquiry.new %>
+<% end %>
 
 <% if admin? || (current_user.id == @house.user_id)%>
 <%= link_to 'Edit', edit_house_path(@house) %> |
