@@ -1,21 +1,18 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Houses</h1>
+<h4>Houses</h4>
 
-<table>
-  <thead>
+<table class="table">
+  <thead class="thead-light">
     <tr>
-      <th>Real estate company</th>
+      <th>Name</th>
+      <th>Real Estate Company</th>
       <th>User</th>
       <th>House style</th>
       <th>Location</th>
       <th>Sq ft</th>
       <th>Year</th>
       <th>Price</th>
-      <th>Floors</th>
-      <th>Basement</th>
-      <th>Owner</th>
-      <th>Contact</th>
       <% if !house_hunter? %><th></th><% end %>
       <th></th>
     </tr>
@@ -24,17 +21,14 @@
   <tbody>
     <% @houses.each do |house| %>
       <tr>
-        <td><%= house.real_estate_company %></td>
-        <td><%= house.user %></td>
-        <td><%= house.house_style %></td>
+        <td><%= house.name %></td>
+        <td><%= house.real_estate_company.name %></td>
+        <td><%= house.user.name %></td>
+        <td><%= house.house_style.name %></td>
         <td><%= house.location %></td>
         <td><%= house.sq_ft %></td>
         <td><%= house.year %></td>
         <td><%= house.price %></td>
-        <td><%= house.floors %></td>
-        <td><%= house.basement %></td>
-        <td><%= house.owner %></td>
-        <td><%= house.contact %></td>
         <td><%= link_to 'Show', house %></td>
         <% if !house_hunter? %><td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
       </tr>
@@ -43,8 +37,9 @@
 </table>
 
 <br>
-
-<% if !house_hunter? %>
-<%= link_to 'New House', new_house_path %>
-<% end %>
-<%= link_to 'Back', welcome_index_path %>
+<div class="list-group mx-auto" style="width: 200px; text-align: center">
+  <% if !house_hunter? %>
+  <%= link_to 'Add New House', new_house_path, class: 'list-group-item list-group-item-action' %>
+  <% end %>
+  <%= link_to 'Back', welcome_index_path, class: 'list-group-item list-group-item-action' %>
+</div>

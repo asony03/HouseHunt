@@ -1,6 +1,6 @@
 class Inquiry < ApplicationRecord
   belongs_to :user
-  has_one :house
+  belongs_to :house
 
   validates :subject, :msg, presence: true
 end

@@ -1,15 +1,3 @@
-<p>
-  <strong>House: </strong>
-  <%= @house.name %>
-</p>
-<p>
-  <strong>Subject: </strong>
-  <%= inquiry.subject %>
-</p>
-<p>
-  <strong>Message: </strong>
-  <%= inquiry.msg %>
-</p>
 <%= form_with(model: inquiry, local: true) do |form| %>
   <% if inquiry.errors.any? %>
     <div id="error_explanation">
@@ -24,8 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= form.label :reply %>
-    <%= form.text_area :reply %>
+    <%= form.hidden_field :house_id, :value => @house.id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :subject %>
+    <%= form.text_field :subject %>
+  </div>
+
+  <div class="field">
+    <%= form.label :msg %>
+    <%= form.text_area :msg %>
   </div>
 
   <div class="actions">

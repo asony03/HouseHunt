@@ -11,6 +11,7 @@ class HousesController < ApplicationController
   # GET /houses/1
   # GET /houses/1.json
   def show
+    initLists
   end
 
   # GET /houses/new
@@ -29,6 +30,8 @@ class HousesController < ApplicationController
   def create
     initLists
     @house = House.new(house_params)
+    @house.user_id = current_user.id
+    @house.real_estate_company_id = current_user.real_estate_company.id
 
     respond_to do |format|
       if @house.save
@@ -69,19 +72,21 @@ class HousesController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_house
-      @house = House.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def house_params
-      params.require(:house).permit(:real_estate_company_id, :user_id, :house_style_id, :location, :sq_ft, :year, :price, :floors, :basement, :owner, :contact, :potential_buyers)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_house
+    @house = House.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def house_params
+    params.require(:house).permit(:name, :real_estate_company_id, :user_id, :house_style_id, :location, :sq_ft, :year, :price, :floors, :basement, :owner, :contact, images: [])
+  end
 
   def initLists
-    @real_estate_companies = RealEstateCompany.all
-    @users = User.all
+    @potential_buyer = PotentialBuyer.find_by house_id: @house.id, user_id: current_user.id if house_hunter?
     @house_styles = HouseStyle.all
+    @inquiries = Inquiry.where(user_id: current_user.id, house_id: @house.id) unless @house.nil?
+    @potential_buyers = User.joins(:potential_buyers).where(potential_buyers: {house_id: @house.id}) if realtor? && !@house.nil?
   end
 end

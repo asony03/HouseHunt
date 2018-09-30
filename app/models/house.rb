@@ -1,10 +1,11 @@
 class House < ApplicationRecord
+  has_many_attached :images
   belongs_to :real_estate_company
   belongs_to :user
   belongs_to :house_style
   has_many :inquiries
+  has_many :potential_buyers
 
-  validates :name, presence: true, length: { maximum: 100 }
-  validates :location, :owner, :basement, :contact, presence: true
+  validates :name, :location, :owner, :basement, :contact, presence: true
   validates :year, :floors, :price, :sq_ft, presence: true, numericality: true
 end

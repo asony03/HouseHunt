@@ -1,6 +1,8 @@
-<h1>Editing Inquiry</h1>
+<h1>Resolve Inquiry</h1>
 
 <%= render 'form', inquiry: @inquiry %>
 
-<%= link_to 'Show', @inquiry %> |
-<%= link_to 'Back', inquiries_path %>
+<div class="list-group mx-auto" style="width: 200px; text-align: center">
+  <%= link_to 'Show', @inquiry, class: 'list-group-item list-group-item-action' %>
+  <%= link_to 'Back', inquiries_path, class: 'list-group-item list-group-item-action' %>
+</div>
