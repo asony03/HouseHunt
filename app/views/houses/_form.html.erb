@@ -61,6 +61,10 @@
     <%= form.text_field :contact %>
   </div>
 
+  <div class="field">
+    <%= form.label :images %>
+    <%= form.file_field :images, multiple: true, direct_upload: true %>
+  </div>
   <div class="actions">
     <%= form.submit %>
   </div>

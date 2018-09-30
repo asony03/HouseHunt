@@ -1,5 +1,9 @@
 <p id="notice"><%= notice %></p>
 
+<% @house.images.each do |image| %>
+  <%= image_tag image, width: '200px' %>
+<% end %>
+
 <p>
   <strong>Name:</strong>
   <%= @house.name %>
@@ -80,7 +84,7 @@
       <strong>Message: </strong>
       <%= inquiry.msg %>
     </p>
-    <% if !inquiry.reply.nil? && !inquiry.empty?  %>
+    <% if !inquiry.reply.nil? && !inquiry.reply.empty?  %>
       <p>
         <strong>Reply: </strong>
         <%= inquiry.reply %>
