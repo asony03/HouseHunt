@@ -10,4 +10,6 @@ Rails.application.routes.draw do
   resources :real_estate_companies
   get 'welcome/index'
   root 'sessions#new'
+  get 'potential_buyer/mark_interested'
+  get 'potential_buyer/mark_uninterested'
 end

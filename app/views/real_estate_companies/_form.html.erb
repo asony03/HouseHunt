@@ -11,42 +11,48 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <%= form.label :website %>
+      <%= form.text_field :website, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :website %>
-    <%= form.text_field :website %>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :address %>
+      <%= form.text_area :address, class: 'form-control' %>
+    </div>
+
+    <div class="form-group col-md-6">
+      <%= form.label :synopsis %>
+      <%= form.text_area :synopsis, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :address %>
-    <%= form.text_area :address %>
-  </div>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <%= form.label :size %>
+      <%= form.text_field :size, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :size %>
-    <%= form.text_field :size %>
-  </div>
+    <div class="form-group col-md-4">
+      <%= form.label :founded %>
+      <%= form.number_field :founded, class: 'form-control' %>
+    </div>
 
-  <div class="field">
-    <%= form.label :founded %>
-    <%= form.number_field :founded %>
-  </div>
-
-  <div class="field">
-    <%= form.label :revenue %>
-    <%= form.text_field :revenue %>
-  </div>
-
-  <div class="field">
-    <%= form.label :synopsis %>
-    <%= form.text_area :synopsis %>
+    <div class="form-group col-md-4">
+      <%= form.label :revenue %>
+      <%= form.text_field :revenue, class: 'form-control' %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit 'Save', :class => 'btn btn-primary' %>
   </div>
 <% end %>

@@ -5,7 +5,15 @@ class InquiriesController < ApplicationController
   # GET /inquiries
   # GET /inquiries.json
   def index
-    @inquiries = Inquiry.all
+    @inquiries =
+      if house_hunter?
+        Inquiry.where(user_id: current_user.id)
+      elsif realtor?
+        Inquiry.joins(:house).where(houses: { real_estate_company_id: current_user.real_estate_company.id} )
+      else
+        Inquiry.all
+      end
+    @inquiries = @inquiries.sort_by(&:updated_at).reverse
   end
 
   # GET /inquiries/1
@@ -22,6 +30,7 @@ class InquiriesController < ApplicationController
   # GET /inquiries/1/edit
   def edit
     @houses = House.all
+    @house = House.find(@inquiry.house_id)
   end
 
   # POST /inquiries
@@ -33,7 +42,7 @@ class InquiriesController < ApplicationController
 
     respond_to do |format|
       if @inquiry.save
-        format.html { redirect_to @inquiry, notice: 'Inquiry was successfully created.' }
+        format.html { redirect_to @inquiry.reply.nil? ? house_path(@inquiry.house_id) : @inquiry, notice: 'Inquiry was successfully created.' }
         format.json { render :show, status: :created, location: @inquiry }
       else
         format.html { render :new }
@@ -75,6 +84,6 @@ class InquiriesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def inquiry_params
-      params.require(:inquiry).permit(:user, :house, :subject, :msg)
+      params.require(:inquiry).permit(:user, :house_id, :subject, :msg, :reply)
     end
 end

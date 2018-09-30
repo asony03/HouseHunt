@@ -1,18 +1,26 @@
 <p id="notice"><%= notice %></p>
 
+<% @house.images.each do |image| %>
+  <%= image_tag image, width: '200px' %>
+<% end %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @house.name %>
+</p>
 <p>
   <strong>Real estate company:</strong>
-  <%= @house.real_estate_company %>
+  <%= @house.real_estate_company.name %>
 </p>
 
 <p>
-  <strong>User:</strong>
-  <%= @house.user %>
+  <strong>Realtor :</strong>
+  <%= @house.user.name %>
 </p>
 
 <p>
   <strong>House style:</strong>
-  <%= @house.house_style %>
+  <%= @house.house_style.name %>
 </p>
 
 <p>
@@ -54,18 +62,51 @@
   <strong>Contact:</strong>
   <%= @house.contact %>
 </p>
-<% if !house_hunter? %>
+<% if !house_hunter? && current_user.id == @house.user_id %>
 <p>
   <strong>Potential buyers:</strong>
-  <%= "**need to display**" %>
+  <ul>
+    <% @potential_buyers.each do |buyer| %>
+      <li><%= link_to buyer.name, user_path(buyer.id) %></li>
+    <% end %>
+  </ul>
 </p>
 <% end %>
-<p>
-  <strong>Interested:</strong>
-  <%= "**need to display**" %>
-</p>
+<% if house_hunter? %>
+  <p>
+    <strong>Interested:</strong>
+    <%= !@potential_buyer.nil? %>
+  </p>
+  <% if @potential_buyer.nil? %>
+    <%= link_to 'Mark Interested', controller: 'potential_buyer', action: 'mark_interested', house_id: @house.id %>
+  <% else %>
+    <%= link_to 'Mark Uninterested', controller: 'potential_buyer', action: 'mark_uninterested', house_id: @house.id %>
+  <% end %>
+
+  <br><h2>Inquiries</h2><br>
+  <% @inquiries.each do |inquiry|  %>
+    <p>
+      <strong>Subject: </strong>
+      <%= inquiry.subject %>
+    </p>
+    <p>
+      <strong>Message: </strong>
+      <%= inquiry.msg %>
+    </p>
+    <% if !inquiry.reply.nil? && !inquiry.reply.empty?  %>
+      <p>
+        <strong>Reply: </strong>
+        <%= inquiry.reply %>
+      </p>
+    <% else %>
+      <p><i>A realtor is yet to reply to this inquiry.</i></p>
+    <% end %>
+  <% end %>
+  <br><h4>Add new Inquiry</h4><br>
+  <%= render 'inquiry_form', inquiry: Inquiry.new %>
+<% end %>
 
 <% if admin? || (current_user.id == @house.user_id)%>
 <%= link_to 'Edit', edit_house_path(@house) %> |
 <% end %>
-<%= link_to 'Back', :back %>
+<%= link_to 'Back', houses_path %>
