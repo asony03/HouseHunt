@@ -4,6 +4,7 @@ class House < ApplicationRecord
   belongs_to :user
   belongs_to :house_style
   has_many :inquiries
+  has_many :potential_buyers
 
   validates :name, :location, :owner, :basement, :contact, presence: true
   validates :year, :floors, :price, :sq_ft, presence: true, numericality: true

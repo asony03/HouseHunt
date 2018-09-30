@@ -65,14 +65,23 @@
 <% if !house_hunter? && current_user.id == @house.user_id %>
 <p>
   <strong>Potential buyers:</strong>
-  <%= "**need to display**" %>
+  <ul>
+    <% @potential_buyers.each do |buyer| %>
+      <li><%= link_to buyer.name, user_path(buyer.id) %></li>
+    <% end %>
+  </ul>
 </p>
 <% end %>
 <% if house_hunter? %>
   <p>
     <strong>Interested:</strong>
-    <%= "**need to display**" %>
+    <%= !@potential_buyer.nil? %>
   </p>
+  <% if @potential_buyer.nil? %>
+    <%= link_to 'Mark Interested', controller: 'potential_buyer', action: 'mark_interested', house_id: @house.id %>
+  <% else %>
+    <%= link_to 'Mark Uninterested', controller: 'potential_buyer', action: 'mark_uninterested', house_id: @house.id %>
+  <% end %>
 
   <br><h2>Inquiries</h2><br>
   <% @inquiries.each do |inquiry|  %>
@@ -100,4 +109,4 @@
 <% if admin? || (current_user.id == @house.user_id)%>
 <%= link_to 'Edit', edit_house_path(@house) %> |
 <% end %>
-<%= link_to 'Back', :back %>
+<%= link_to 'Back', houses_path %>
