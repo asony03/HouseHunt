@@ -30,6 +30,7 @@ class InquiriesController < ApplicationController
   # GET /inquiries/1/edit
   def edit
     @houses = House.all
+    @house = House.find(@inquiry.house_id)
   end
 
   # POST /inquiries

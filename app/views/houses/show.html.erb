@@ -58,18 +58,18 @@
   <strong>Contact:</strong>
   <%= @house.contact %>
 </p>
-<% if !house_hunter? %>
+<% if !house_hunter? && current_user.id == @house.user_id %>
 <p>
   <strong>Potential buyers:</strong>
   <%= "**need to display**" %>
 </p>
 <% end %>
-<p>
-  <strong>Interested:</strong>
-  <%= "**need to display**" %>
-</p>
-
 <% if house_hunter? %>
+  <p>
+    <strong>Interested:</strong>
+    <%= "**need to display**" %>
+  </p>
+
   <br><h2>Inquiries</h2><br>
   <% @inquiries.each do |inquiry|  %>
     <p>
