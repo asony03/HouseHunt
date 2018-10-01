@@ -18,7 +18,7 @@
 
     <div class="form-group col-md-6">
       <%= form.label :house_style %>
-      <%= form.collection_select :house_style_id, @house_styles, :id, :name, {}, {class: 'form-control'} %>
+      <%= form.collection_select :house_style_id, @house_styles, :id, :name, {:include_blank => true}, {class: 'form-control'} %>
     </div>
   </div>
 
