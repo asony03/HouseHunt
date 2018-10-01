@@ -30,7 +30,7 @@
         <td><%= house.year %></td>
         <td><%= house.price %></td>
         <td><%= link_to 'Show', house %></td>
-        <% if !house_hunter? %><td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
+        <% if admin? or (realtor? and (current_user.id == house.user_id)) %><td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
       </tr>
     <% end %>
   </tbody>
@@ -38,8 +38,10 @@
 
 <br>
 <div class="list-group mx-auto" style="width: 200px; text-align: center">
-  <% if !house_hunter? %>
-  <%= link_to 'Add New House', new_house_path, class: 'list-group-item list-group-item-action' %>
+  <% if admin? or (realtor? and !current_user.real_estate_company_id.nil?) %>
+    <%= link_to 'Add New House', new_house_path, class: 'list-group-item list-group-item-action' %>
+  <% else %>
+    <p> To add a new House, please add a Real Estate Company on your profile</p>
   <% end %>
   <%= link_to 'Back', welcome_index_path, class: 'list-group-item list-group-item-action' %>
 </div>
