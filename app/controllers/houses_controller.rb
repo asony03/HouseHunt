@@ -18,20 +18,25 @@ class HousesController < ApplicationController
   def new
     initLists
     @house = House.new
+    @real_estate_companies = RealEstateCompany.all
   end
 
   # GET /houses/1/edit
   def edit
     initLists
+    @real_estate_companies = RealEstateCompany.all
   end
 
   # POST /houses
   # POST /houses.json
   def create
     initLists
+    @real_estate_companies = RealEstateCompany.all
     @house = House.new(house_params)
     @house.user_id = current_user.id
-    @house.real_estate_company_id = current_user.real_estate_company.id
+    if(@house.real_estate_company_id.nil?)
+      @house.real_estate_company_id = current_user.real_estate_company_id
+    end
 
     respond_to do |format|
       if @house.save
@@ -50,6 +55,7 @@ class HousesController < ApplicationController
   # PATCH/PUT /houses/1.json
   def update
     initLists
+    @real_estate_companies = RealEstateCompany.all
     respond_to do |format|
       if @house.update(house_params)
         format.html { redirect_to @house, notice: 'House was successfully updated.' }

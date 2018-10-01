@@ -61,6 +61,13 @@
     </div>
   </div>
 
+  <% if(admin?) %>
+    <div class="form-row">
+      <%= form.label :real_estate_company%>
+      <%= form.collection_select(:real_estate_company_id, @real_estate_companies, :id, :name) %>
+    </div>
+  <% end %>
+
   <div class="form-group">
     <%= form.label :basement %> &nbsp;
     <%= form.check_box :basement, class: 'checkbox-inline' %>
