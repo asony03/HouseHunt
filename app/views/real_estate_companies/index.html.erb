@@ -28,7 +28,7 @@
         <td><%= real_estate_company.revenue %></td>
         <td><%= real_estate_company.synopsis %></td>
         <td><%= link_to 'Show', real_estate_company %></td>
-        <% if !house_hunter? %><td><%= link_to 'Destroy', real_estate_company, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
+        <% if !house_hunter? and !realtor? %><td><%= link_to 'Destroy', real_estate_company, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
       </tr>
     <% end %>
   </tbody>
