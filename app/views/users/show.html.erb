@@ -41,10 +41,10 @@
 
 
 <% if logged_in? %>
-  <% if ( @user.id == current_user.id) %>
+  <% if ( @user.id == current_user.id ) %>
   <%= link_to 'Edit', edit_user_path(@user) %> |
     <% end %>
-  <% path = realtor? ? (( @user.id == current_user.id) ? welcome_index_path : :back) : (admin? ? :users : :back) %>
+  <% path = realtor? || house_hunter? ? (( @user.id == current_user.id) ? welcome_index_path : :back) : (admin? ? :users : :back) %>
   <%= link_to 'Back', path %>
 <% else %>
   <%= link_to 'Login', login_path %>
