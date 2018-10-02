@@ -17,11 +17,13 @@ class UsersController < ApplicationController
   def new
     @user = User.new
     @real_estate_companies = RealEstateCompany.all
+    @editable=1
   end
 
   # GET /users/1/edit
   def edit
     @real_estate_companies = RealEstateCompany.all
+    @editable=0;
   end
 
   # POST /users

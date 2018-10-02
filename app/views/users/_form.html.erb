@@ -18,7 +18,11 @@
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%if @editable!=0 or (admin? and current_user.id==user.id) %>
+      <%= form.text_field :email %>
+    <% else %>
+      <%= form.text_field :email, :readonly=>true %>
+    <%end %>
   </div>
 
   <div class="field">
@@ -60,10 +64,12 @@
 
   <% end %>
 
-  <div class="field">
-    <%= form.label :real_estate_company%>
-    <%= form.collection_select(:real_estate_company_id, @real_estate_companies, :id, :name, :include_blank => true) %>
-  </div>
+  <%if !house_hunter? %>
+    <div class="field">
+      <%= form.label :real_estate_company%>
+      <%= form.collection_select(:real_estate_company_id, @real_estate_companies, :id, :name, :include_blank => true) %>
+    </div>
+  <% end %>
 
   <div class="actions">
     <%= form.submit %>
