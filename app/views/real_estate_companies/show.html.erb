@@ -1,78 +1,95 @@
-<div class="row">
-  <span style="font-size: 40pt"><%= @real_estate_company.name %></span>
-</div>
-<br>
+<span style="font-size: 40pt;"><%= @real_estate_company.name %></span>
+<br><br>
 
-<div class="d-flex flex-row">
-  <div class="p-2"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 24px;">web</i></div>
-  <div class="p-2">
-    <div class="row">
-      <span class="text-uppercase font-weight-bold">Website</span>
-    </div>
-    <div class="row">
-      <span><%= @real_estate_company.website %></span>
-    </div>
-  </div>
-</div>
+<div class="card" style="width: 30rem;">
+  <ul class="list-group list-group-flush">
+    <div class="list-group list-group-flush" style="background: #cc0000;height: 3px"></div>
 
-<div class="d-flex flex-row">
-  <div class="p-2"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 24px;">home</i></div>
-  <div class="p-2">
-    <div class="row">
-      <span class="text-uppercase font-weight-bold">Address</span>
-    </div>
-    <div class="row">
-      <span><%= @real_estate_company.address %></span>
-    </div>
-  </div>
-</div>
+    <li class="list-group-item pl-4">
+      <div class="d-flex flex-row">
+        <div class="p-2" style="color: #cc0000"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 24px;">language</i></div>
+        <div class="p-2">
+          <div class="row">
+            <span class="text-uppercase font-weight-bold" style="color: #cc0000">Website</span>
+          </div>
+          <div class="row">
+            <span><%= @real_estate_company.website %></span>
+          </div>
+        </div>
+      </div>
+    </li>
 
-<div class="d-flex flex-row">
-  <div class="p-2"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 24px;">people</i></div>
-  <div class="p-2">
-    <div class="row">
-      <span class="text-uppercase font-weight-bold">Size</span>
-    </div>
-    <div class="row">
-      <span><%= @real_estate_company.size %></span>
-    </div>
-  </div>
-</div>
+    <li class="list-group-item pl-4">
+      <div class="d-flex flex-row">
+        <div class="p-2" style="color: #cc0000"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 24px;">home</i></div>
+        <div class="p-2">
+          <div class="row">
+            <span class="text-uppercase font-weight-bold" style="color: #cc0000" style="color: #cc0000">Address</span>
+          </div>
+          <div class="row">
+            <span><%= @real_estate_company.address %></span>
+          </div>
+        </div>
+      </div>
+    </li>
 
-<div class="d-flex flex-row">
-  <div class="p-2"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 24px;">history</i></div>
-  <div class="p-2">
-    <div class="row">
-      <span class="text-uppercase font-weight-bold">Founded</span>
-    </div>
-    <div class="row">
-      <span><%= @real_estate_company.founded %></span>
-    </div>
-  </div>
-</div>
+    <li class="list-group-item pl-4">
+      <div class="d-flex flex-row">
+        <div class="p-2" style="color: #cc0000"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 24px;">people</i></div>
+        <div class="p-2">
+          <div class="row">
+            <span class="text-uppercase font-weight-bold" style="color: #cc0000">Size</span>
+          </div>
+          <div class="row">
+            <span><%= @real_estate_company.size %></span>
+          </div>
+        </div>
+      </div>
+    </li>
 
-<div class="d-flex flex-row">
-  <div class="p-2"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 24px;">attach_money</i></div>
-  <div class="p-2">
-    <div class="row">
-      <span class="text-uppercase font-weight-bold">Revenue</span>
-    </div>
-    <div class="row">
-      <span><%= @real_estate_company.revenue %></span>
-    </div>
-  </div>
-</div>
+    <li class="list-group-item pl-4">
+      <div class="d-flex flex-row">
+        <div class="p-2" style="color: #cc0000"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 24px;">history</i></div>
+        <div class="p-2">
+          <div class="row">
+            <span class="text-uppercase font-weight-bold" style="color: #cc0000">Founded</span>
+          </div>
+          <div class="row">
+            <span><%= @real_estate_company.founded %></span>
+          </div>
+        </div>
+      </div>
+    </li>
 
-<div class="d-flex flex-row">
-  <div class="p-2"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 24px;">notes</i></div>
-  <div class="p-2">
-    <div class="row">
-      <span class="text-uppercase font-weight-bold">Synopsis</span>
-    </div>
-    <div class="row">
-      <span><%= @real_estate_company.synopsis %></span>
-    </div>
-  </div>
+    <li class="list-group-item pl-4">
+      <div class="d-flex flex-row">
+        <div class="p-2" style="color: #cc0000"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 24px;">attach_money</i></div>
+        <div class="p-2">
+          <div class="row">
+            <span class="text-uppercase font-weight-bold" style="color: #cc0000">Revenue</span>
+          </div>
+          <div class="row">
+            <span><%= @real_estate_company.revenue %></span>
+          </div>
+        </div>
+      </div>
+    </li>
+
+    <li class="list-group-item pl-4">
+      <div class="d-flex flex-row">
+        <div class="p-2" style="color: #cc0000"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 24px;">notes</i></div>
+        <div class="p-2">
+          <div class="row">
+            <span class="text-uppercase font-weight-bold" style="color: #cc0000">Synopsis</span>
+          </div>
+          <div class="row">
+            <span><%= @real_estate_company.synopsis %></span>
+          </div>
+        </div>
+      </div>
+    </li>
+    <div class="list-group list-group-flush" style="background: #cc0000;height: 3px"></div>
+  </ul>
 </div>
 
 <% if !notice.nil? %>
@@ -88,8 +105,17 @@
 
 <br>
 
-<% if !house_hunter? && !current_user.real_estate_company.nil? && current_user.real_estate_company.id == @real_estate_company.id %>
-<%= link_to 'Edit', edit_real_estate_company_path(@real_estate_company) %> |
-<% end %>
-<%= link_to 'Back', real_estate_companies_path %>
-
+<div class="d-flex flex-row" style="width: 250px; text-align: center">
+  <div class="p-2" style="width: 73px">
+    <%= link_to real_estate_companies_path, class: 'list-group-item list-group-item-danger list-group-item-action' do %>
+      <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px;">arrow_back_ios</i>
+    <% end %>
+  </div>
+  <% if !house_hunter? && !current_user.real_estate_company.nil? && current_user.real_estate_company.id == @real_estate_company.id %>
+    <div class="p-2" style="width: 80px">
+      <%= link_to edit_real_estate_company_path(@real_estate_company), class: 'list-group-item list-group-item-danger   list-group-item-action' do %>
+        <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px;">edit</i>
+      <% end %>
+    </div>
+  <% end %>
+</div>
