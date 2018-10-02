@@ -6,24 +6,28 @@
     </a>
     <%#= link_to 'HouseHunt', welcome_index_path, class: 'navbar-brand ' %>
       <ul class="nav justify-content-end navbar-nav">
-        <li class="nav-item"><%= link_to "Home", welcome_index_path, class: 'nav-link' %></li>
         <% if logged_in? %>
-          <% if(session[:role] == User::ROLE_ADMIN) %>
-            <li class="nav-item"><%= link_to "Users", users_path, class: 'nav-link' %></li>
-          <% end %>
           <li class="nav-item dropdown">
             <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">
               <%= current_user.name %> <b class="caret"></b>
             </a>
             <ul class="dropdown-menu">
-              <li><%= link_to "Profile", current_user, class: 'dropdown-item' %></li>
+              <li>
+                <%= link_to current_user, class: 'dropdown-item' do %>
+                  <span class="row"><i class="material-icons mr-2">account_circle</i>Profile</span>
+                <% end %>
+              </li>
               <% if(session[:role] == User::ROLE_REALTOR and current_user.is_house_hunter?) %>
                 <li><%= link_to "Switch to House Hunter", {:controller => "sessions", :action => "update", :role => 1 },:method => :patch, class: 'dropdown-item' %></li>
               <% elsif(session[:role] == User::ROLE_HOUSE_HUNTER and current_user.is_realtor?) %>
                 <li><%= link_to "Switch to Realtor",{:controller => "sessions", :action => "update", :role => 2 },:method => :patch, class: 'dropdown-item' %></li></li>
               <%end %>
               <div class="dropdown-divider"></div>
-              <li><%= link_to "Log out", logout_path, method: :delete, class: 'dropdown-item' %></li>
+              <li>
+                <%= link_to logout_path, method: :delete, class: 'dropdown-item' do %>
+                  <span class="row"><i class="material-icons mr-2">logout</i>Log out</span>
+                <% end %>
+              </li>
             </ul>
           </li>
         <% else %>

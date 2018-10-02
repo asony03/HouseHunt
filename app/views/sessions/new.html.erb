@@ -1,27 +1,38 @@
-<%= form_for(:session, url: login_path) do |f| %>
-  <% provide(:title, "Log in") %>
-  <h1>Welcome to House Hunt</h1>
-  <h2> Log In</h2>
-
-  <%= form_for(:session, url: login_path) do |f| %>
-    <div class="form-row">
-      <div class="form-group col-md-4">
-        <%= f.label :email %>
-         <%= f.email_field :email, class: 'form-control' %>
+<div class="row" style="margin-top: 110px">
+  <div class="col-md-4 offset-md-4">
+    <div class="card">
+      <div style="padding: 30px" align="center">
+        <%= form_for(:session, url: login_path) do |f| %>
+          <% provide(:title, "Log in") %>
+          <br>
+          <img src="<%= image_path 'logo.png' %>" height="50" class="d-inline-block align-top" alt="">
+          <h1>House Hunt</h1>
+          <br>
+          <div style="padding-left: 20px;padding-right: 20px">
+            <%= form_for(:session, url: login_path) do |f| %>
+              <div class="form-row" align="left">
+                <div class="form-group" style="width: 100%">
+                  <%= f.label :email %>
+                   <%= f.email_field :email, class: 'form-control' %>
+                </div>
+              </div>
+              <div class="form-row" align="left">
+                <div class="form-group"  style="width: 100%">
+                  <%= f.label :password %>
+                  <%= f.password_field :password, class: 'form-control' %>
+                </div>
+              </div>
+              <div class="form-row">
+                <div class="actions">
+                  <%= f.submit "Log in", class: "btn btn-primary" %>
+                </div>
+              </div>
+            <% end %>
+          </div>
+          <br>
+          <p>New user? <%= link_to "Sign up now!", sign_up_new_path %></p>
+        <% end %>
       </div>
     </div>
-    <div class="form-row">
-      <div class="form-group col-md-4">
-        <%= f.label :password %>
-        <%= f.password_field :password, class: 'form-control' %>
-      </div>
-    </div>
-    <div class="form-row">
-      <div class="actions">
-        <%= f.submit "Log in", class: "btn btn-primary" %>
-      </div>
-    </div>
-  <% end %>
-  <br>
-  <p>New user? <%= link_to "Sign up now!", sign_up_new_path %></p>
-<% end %>
+  </div>
+</div>
