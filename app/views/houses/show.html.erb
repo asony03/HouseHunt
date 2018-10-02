@@ -72,7 +72,7 @@
   </ul>
 </p>
 <% end %>
-<% if house_hunter? %>
+<% if house_hunter? || admin?%>
   <p>
     <strong>Interested:</strong>
     <%= !@potential_buyer.nil? %>
