@@ -46,7 +46,8 @@
   </div>
 
   <div class="field">
-    <%= form.collection_select(:real_estate_company_id, @real_estate_companies, :id, :name) %>
+    <%= form.label :real_estate_company%>
+    <%= form.collection_select(:real_estate_company_id, @real_estate_companies, :id, :name, :include_blank => true) %>
   </div>
 
   <div class="actions">

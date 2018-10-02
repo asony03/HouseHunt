@@ -18,7 +18,7 @@
 
     <div class="form-group col-md-6">
       <%= form.label :house_style %>
-      <%= form.collection_select :house_style_id, @house_styles, :id, :name, {}, {class: 'form-control'} %>
+      <%= form.text_field :house_style, class: 'form-control' %>
     </div>
   </div>
 
@@ -60,6 +60,13 @@
       <%= form.text_field :contact, class: 'form-control' %>
     </div>
   </div>
+
+  <% if(admin?) %>
+    <div class="form-row">
+      <%= form.label :real_estate_company%>
+      <%= form.collection_select(:real_estate_company_id, @real_estate_companies, :id, :name) %>
+    </div>
+  <% end %>
 
   <div class="form-group">
     <%= form.label :basement %> &nbsp;

@@ -18,20 +18,25 @@ class HousesController < ApplicationController
   def new
     initLists
     @house = House.new
+    @real_estate_companies = RealEstateCompany.all
   end
 
   # GET /houses/1/edit
   def edit
     initLists
+    @real_estate_companies = RealEstateCompany.all
   end
 
   # POST /houses
   # POST /houses.json
   def create
     initLists
+    @real_estate_companies = RealEstateCompany.all
     @house = House.new(house_params)
     @house.user_id = current_user.id
-    @house.real_estate_company_id = current_user.real_estate_company.id
+    if(@house.real_estate_company_id.nil?)
+      @house.real_estate_company_id = current_user.real_estate_company_id
+    end
 
     respond_to do |format|
       if @house.save
@@ -50,6 +55,7 @@ class HousesController < ApplicationController
   # PATCH/PUT /houses/1.json
   def update
     initLists
+    @real_estate_companies = RealEstateCompany.all
     respond_to do |format|
       if @house.update(house_params)
         format.html { redirect_to @house, notice: 'House was successfully updated.' }
@@ -80,7 +86,7 @@ class HousesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def house_params
-    params.require(:house).permit(:name, :real_estate_company_id, :user_id, :house_style_id, :location, :sq_ft, :year, :price, :floors, :basement, :owner, :contact, images: [])
+    params.require(:house).permit(:name, :real_estate_company_id, :user_id, :house_style, :location, :sq_ft, :year, :price, :floors, :basement, :owner, :contact, images: [])
   end
 
   def initLists

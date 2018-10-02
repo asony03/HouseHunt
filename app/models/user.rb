@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  belongs_to :real_estate_company
+  belongs_to :real_estate_company, optional: true
   has_many :houses # realtor is associated with houses
   has_many :inquiries
   has_many :potential_buyers
