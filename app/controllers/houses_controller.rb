@@ -90,7 +90,7 @@ class HousesController < ApplicationController
   end
 
   def initLists
-    @potential_buyer = PotentialBuyer.find_by house_id: @house.id, user_id: current_user.id if house_hunter? || admin?
+    @potential_buyer = PotentialBuyer.find_by house_id: @house.id, user_id: current_user.id if house_hunter? || (admin? and !@house.nil?)
     @house_styles = HouseStyle.all
     @inquiries = Inquiry.where(user_id: current_user.id, house_id: @house.id) unless @house.nil?
     @potential_buyers = User.joins(:potential_buyers).where(potential_buyers: {house_id: @house.id}) if realtor? && !@house.nil?

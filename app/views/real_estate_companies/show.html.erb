@@ -35,7 +35,7 @@
   <%= @real_estate_company.synopsis %>
 </p>
 
-<% if !house_hunter? && current_user.real_estate_company.id == @real_estate_company.id %>
+<% if !house_hunter? && !current_user.real_estate_company.nil? && current_user.real_estate_company.id == @real_estate_company.id %>
 <%= link_to 'Edit', edit_real_estate_company_path(@real_estate_company) %> |
 <% end %>
 <%= link_to 'Back', real_estate_companies_path %>
