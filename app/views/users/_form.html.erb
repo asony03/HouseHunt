@@ -18,7 +18,11 @@
 
   <div class="field">
     <%= form.label :email %>
-    <%= form.text_field :email %>
+    <%if @editable!=0 or (admin? and current_user.id==user.id) %>
+      <%= form.text_field :email %>
+    <% else %>
+      <%= form.text_field :email, :readonly=>true %>
+    <%end %>
   </div>
 
   <div class="field">
