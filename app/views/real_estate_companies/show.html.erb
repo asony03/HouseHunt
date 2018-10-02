@@ -1,39 +1,92 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+  <span style="font-size: 40pt"><%= @real_estate_company.name %></span>
+</div>
+<br>
 
-<p>
-  <strong>Name:</strong>
-  <%= @real_estate_company.name %>
-</p>
+<div class="d-flex flex-row">
+  <div class="p-2"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 24px;">web</i></div>
+  <div class="p-2">
+    <div class="row">
+      <span class="text-uppercase font-weight-bold">Website</span>
+    </div>
+    <div class="row">
+      <span><%= @real_estate_company.website %></span>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Website:</strong>
-  <%= @real_estate_company.website %>
-</p>
+<div class="d-flex flex-row">
+  <div class="p-2"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 24px;">home</i></div>
+  <div class="p-2">
+    <div class="row">
+      <span class="text-uppercase font-weight-bold">Address</span>
+    </div>
+    <div class="row">
+      <span><%= @real_estate_company.address %></span>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Address:</strong>
-  <%= @real_estate_company.address %>
-</p>
+<div class="d-flex flex-row">
+  <div class="p-2"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 24px;">people</i></div>
+  <div class="p-2">
+    <div class="row">
+      <span class="text-uppercase font-weight-bold">Size</span>
+    </div>
+    <div class="row">
+      <span><%= @real_estate_company.size %></span>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Size:</strong>
-  <%= @real_estate_company.size %>
-</p>
+<div class="d-flex flex-row">
+  <div class="p-2"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 24px;">history</i></div>
+  <div class="p-2">
+    <div class="row">
+      <span class="text-uppercase font-weight-bold">Founded</span>
+    </div>
+    <div class="row">
+      <span><%= @real_estate_company.founded %></span>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Founded:</strong>
-  <%= @real_estate_company.founded %>
-</p>
+<div class="d-flex flex-row">
+  <div class="p-2"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 24px;">attach_money</i></div>
+  <div class="p-2">
+    <div class="row">
+      <span class="text-uppercase font-weight-bold">Revenue</span>
+    </div>
+    <div class="row">
+      <span><%= @real_estate_company.revenue %></span>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Revenue:</strong>
-  <%= @real_estate_company.revenue %>
-</p>
+<div class="d-flex flex-row">
+  <div class="p-2"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 24px;">notes</i></div>
+  <div class="p-2">
+    <div class="row">
+      <span class="text-uppercase font-weight-bold">Synopsis</span>
+    </div>
+    <div class="row">
+      <span><%= @real_estate_company.synopsis %></span>
+    </div>
+  </div>
+</div>
 
-<p>
-  <strong>Synopsis:</strong>
-  <%= @real_estate_company.synopsis %>
-</p>
+<% if !notice.nil? %>
+  <div class="row">
+    <div class="alert alert-success" role="alert">
+      <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px;">check_circle</i><%= notice %>
+      <button type="button" class="close ml-3" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
+<% end %>
+
+<br>
 
 <% if !house_hunter? && !current_user.real_estate_company.nil? && current_user.real_estate_company.id == @real_estate_company.id %>
 <%= link_to 'Edit', edit_real_estate_company_path(@real_estate_company) %> |
