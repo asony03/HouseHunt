@@ -1,54 +1,58 @@
-<%= form_with model: @real_estate_company, local: true do |form| %>
-  <% if @real_estate_company.errors.any? %>
-    <div id="error">
-      <h2>
-        <%= pluralize(@real_estate_company.errors.count,"error") %> prohibited this form from getting submitted.
-      </h2>
+<%= form_with(model: real_estate_company, local: true) do |form| %>
+  <% if real_estate_company.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(real_estate_company.errors.count, "error") %> prohibited this real_estate_company from being saved:</h2>
+
       <ul>
-        <% @real_estate_company.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
+      <% real_estate_company.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
       </ul>
     </div>
   <% end %>
 
-  <p>
-    <%= form.label :name %><br>
-    <%= form.text_field :name %>
-  </p>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
 
-  <p>
-    <%= form.label :website %><br>
-    <%= form.text_field :website %>
-  </p>
+    <div class="form-group col-md-6">
+      <%= form.label :website %>
+      <%= form.text_field :website, class: 'form-control' %>
+    </div>
+  </div>
 
-  <p>
-    <%= form.label :address %><br>
-    <%= form.text_field :address %>
-  </p>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :address %>
+      <%= form.text_area :address, class: 'form-control' %>
+    </div>
 
-  <p>
-    <%= form.label :founded %><br>
-    <%= form.text_field :founded %>
-  </p>
+    <div class="form-group col-md-6">
+      <%= form.label :synopsis %>
+      <%= form.text_area :synopsis, class: 'form-control' %>
+    </div>
+  </div>
 
-  <p>
-    <%= form.label :size %><br>
-    <%= form.text_field :size %>
-  </p>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <%= form.label :size %>
+      <%= form.text_field :size, class: 'form-control' %>
+    </div>
 
-  <p>
-    <%= form.label :revenue %><br>
-    <%= form.text_field :revenue %>
-  </p>
+    <div class="form-group col-md-4">
+      <%= form.label :founded %>
+      <%= form.number_field :founded, class: 'form-control' %>
+    </div>
 
-  <p>
-    <%= form.label :synopsis %><br>
-    <%= form.text_area :synopsis %>
-  </p>
+    <div class="form-group col-md-4">
+      <%= form.label :revenue %>
+      <%= form.text_field :revenue, class: 'form-control' %>
+    </div>
+  </div>
 
-  <p>
-    <%= form.submit %>
-  </p>
-  <br>
+  <div class="actions">
+    <%= form.submit 'Save', :class => 'btn btn-primary' %>
+  </div>
 <% end %>

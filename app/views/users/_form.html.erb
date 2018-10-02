@@ -1,0 +1,77 @@
+<%= form_with(model: user, local: true) do |form| %>
+  <% if user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%if @editable!=0 or (admin? and current_user.id==user.id) %>
+      <%= form.text_field :email %>
+    <% else %>
+      <%= form.text_field :email, :readonly=>true %>
+    <%end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :preferred_contact_method %>
+    <%= form.text_field :preferred_contact_method %>
+  </div>
+
+  <% if admin? %>
+
+<!--  <div class="field">-->
+    <%#= form.label :is_admin %>
+    <%#= form.check_box :is_admin %>
+<!--  </div>-->
+
+  <div class="field">
+    <%= form.label :is_realtor %>
+    <%= form.check_box :is_realtor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_house_hunter %>
+    <%= form.check_box :is_house_hunter %>
+  </div>
+
+  <% end %>
+
+  <%if !house_hunter? %>
+    <div class="field">
+      <%= form.label :real_estate_company%>
+      <%= form.collection_select(:real_estate_company_id, @real_estate_companies, :id, :name, :include_blank => true) %>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

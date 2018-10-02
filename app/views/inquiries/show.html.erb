@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @inquiry.user.name %>
+</p>
+
+<p>
+  <strong>House:</strong>
+  <%= @inquiry.house.name %>
+</p>
+
+<p>
+  <strong>Subject:</strong>
+  <%= @inquiry.subject %>
+</p>
+
+<p>
+  <strong>Message:</strong>
+  <%= @inquiry.msg %>
+</p>
+
+<p>
+  <strong>Reply:</strong>
+  <%= @inquiry.reply %>
+</p>
+
+<div class="list-group mx-auto" style="width: 200px; text-align: center">
+  <% if @inquiry.reply.nil? || @inquiry.reply.empty? %>
+    <%= link_to 'Edit', edit_inquiry_path(@inquiry), class: 'list-group-item list-group-item-action' %>
+  <% end %>
+  <%= link_to 'Back', inquiries_path, class: 'list-group-item list-group-item-action' %>
+</div>

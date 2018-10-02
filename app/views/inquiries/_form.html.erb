@@ -1,0 +1,34 @@
+<p>
+  <strong>House: </strong>
+  <%= @house.name %>
+</p>
+<p>
+  <strong>Subject: </strong>
+  <%= inquiry.subject %>
+</p>
+<p>
+  <strong>Message: </strong>
+  <%= inquiry.msg %>
+</p>
+<%= form_with(model: inquiry, local: true) do |form| %>
+  <% if inquiry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(inquiry.errors.count, "error") %> prohibited this inquiry from being saved:</h2>
+
+      <ul>
+      <% inquiry.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :reply %>
+    <%= form.text_area :reply %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,51 @@
+<%= form_with(model: user, local: true) do |form| %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :email %>
+    <%= form.text_field :email %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+
+  <div class="field">
+    <%= form.label :password_confirmation %>
+    <%= form.password_field :password_confirmation %>
+  </div>
+
+  <div class="field">
+    <%= form.label :phone %>
+    <%= form.text_field :phone %>
+  </div>
+
+  <div class="field">
+    <%= form.label :preferred_contact_method %>
+    <%= form.text_field :preferred_contact_method %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_realtor %>
+    <%= form.check_box :is_realtor %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_house_hunter %>
+    <%= form.check_box :is_house_hunter %>
+  </div>
+
+  <div class="field">
+    <%= form.label :real_estate_company%>
+    <%= form.collection_select(:real_estate_company_id, @real_estate_companies, :id, :name, :include_blank => true) %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit "Sign Up"%>
+  </div>
+<% end %>

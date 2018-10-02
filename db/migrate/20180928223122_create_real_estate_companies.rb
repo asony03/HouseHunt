@@ -3,7 +3,7 @@ class CreateRealEstateCompanies < ActiveRecord::Migration[5.2]
     create_table :real_estate_companies do |t|
       t.string :name
       t.string :website
-      t.string :address
+      t.text :address
       t.string :size
       t.integer :founded
       t.string :revenue

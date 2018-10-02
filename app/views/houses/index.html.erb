@@ -1,0 +1,47 @@
+<p id="notice"><%= notice %></p>
+
+<h4>Houses</h4>
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th>Name</th>
+      <th>Real Estate Company</th>
+      <th>User</th>
+      <th>House style</th>
+      <th>Location</th>
+      <th>Sq ft</th>
+      <th>Year</th>
+      <th>Price</th>
+      <% if !house_hunter? %><th></th><% end %>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @houses.each do |house| %>
+      <tr>
+        <td><%= house.name %></td>
+        <td><%= house.real_estate_company.name %></td>
+        <td><%= house.user.name %></td>
+        <td><%= house.house_style %></td>
+        <td><%= house.location %></td>
+        <td><%= house.sq_ft %></td>
+        <td><%= house.year %></td>
+        <td><%= house.price %></td>
+        <td><%= link_to 'Show', house %></td>
+        <% if admin? or (realtor? and (current_user.id == house.user_id)) %><td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<div class="list-group mx-auto" style="width: 200px; text-align: center">
+  <% if admin? or (realtor? and !current_user.real_estate_company_id.nil?) %>
+    <%= link_to 'Add New House', new_house_path, class: 'list-group-item list-group-item-action' %>
+  <% elsif !house_hunter? %>
+    <p><i>To add a new House, please add a Real Estate Company on your profile</i></p>
+  <% end %>
+  <%= link_to 'Back', welcome_index_path, class: 'list-group-item list-group-item-action' %>
+</div>

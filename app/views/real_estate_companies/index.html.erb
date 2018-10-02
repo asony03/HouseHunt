@@ -1,15 +1,44 @@
-<h><strong>List of Real Estate Companies</strong></h>
-<p>
-<table>
-  <% @real_estate_companies.each do |real_estate_company| %>
+<p id="notice"><%= notice %></p>
+
+<h4>Real Estate Companies</h4>
+
+<table class="table">
+  <thead class="thead-light">
     <tr>
-      <td><%= real_estate_company.name %></td>
-      <td><%= link_to 'show', real_estate_company_path(real_estate_company) %></td>
-      <td><%= link_to "Edit", edit_real_estate_company_path(real_estate_company) %></td>
-      <td><%= link_to "Delete", real_estate_company_path(real_estate_company), method: :delete, data: {confirm: "Are you sure"} %></td>
+      <th>Name</th>
+      <th>Website</th>
+      <th>Address</th>
+      <th>Size</th>
+      <th>Founded</th>
+      <th>Revenue</th>
+      <th>Synopsis</th>
+      <% if !house_hunter? %><th></th><% end %>
+      <th></th>
     </tr>
-  <% end %>
+  </thead>
+
+  <tbody>
+    <% @real_estate_companies.each do |real_estate_company| %>
+      <tr>
+        <td><%= real_estate_company.name %></td>
+        <td><%= real_estate_company.website %></td>
+        <td><%= real_estate_company.address %></td>
+        <td><%= real_estate_company.size %></td>
+        <td><%= real_estate_company.founded %></td>
+        <td><%= real_estate_company.revenue %></td>
+        <td><%= real_estate_company.synopsis %></td>
+        <td><%= link_to 'Show', real_estate_company %></td>
+        <% if !house_hunter? and !realtor? %><td><%= link_to 'Destroy', real_estate_company, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
+      </tr>
+    <% end %>
+  </tbody>
 </table>
-</p>
-<%= link_to "Create New", new_real_estate_company_path %><br>
-<%= link_to "Back", root_path %>
+
+<br>
+
+<div class="list-group mx-auto" style="width: 300px; text-align: center">
+  <% if !house_hunter? %>
+  <%= link_to 'New Real Estate Company', new_real_estate_company_path, class: 'list-group-item list-group-item-action' %>
+  <% end %>
+  <%= link_to 'Back', welcome_index_path, class: 'list-group-item list-group-item-action' %>
+</div>
