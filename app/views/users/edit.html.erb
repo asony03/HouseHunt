@@ -1,5 +1,5 @@
 <h1>Editing User</h1>
 
 <%= render 'form', user: @user %>
-
-<%= link_to 'Cancel', user_path %>
+<% path = realtor? ? (( @user.id == current_user.id) ? user_path : :back) : :back %>
+<%= link_to 'Cancel', path %>

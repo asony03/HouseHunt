@@ -12,7 +12,7 @@
       <th width="20%">House</th>
       <th width="20%">Subject</th>
       <th width="20%">Time</th>
-      <th colspan="2" width="7%"></th>
+      <th width="7%"></th>
       <% if admin? %><th width="13%"></th><% end %>
     </tr>
   </thead>
@@ -26,7 +26,6 @@
           <td><%= inquiry.subject %></td>
           <td><%= inquiry.created_at %></td>
           <td><%= link_to 'Show', inquiry %></td>
-          <td><%= link_to 'Edit', edit_inquiry_path(inquiry) %></td>
           <% if admin? %><td><%= link_to 'Destroy', inquiry, method: :delete, data: { confirm: 'Are you sure?' } %></td> <% end %>
         </tr>
       <% end %>
@@ -40,7 +39,7 @@
 <table class="table">
   <thead class="thead-light">
   <tr>
-    <th width="20%">User</thwidth>
+    <th width="20%">User</th>
     <th width="20%">House</th>
     <th width="20%">Subject</th>
     <th width="20%">Time</th>
@@ -73,8 +72,5 @@
 <br>
 
 <div class="list-group mx-auto" style="width: 200px; text-align: center">
-  <% if admin? %>
-    <%= link_to 'New Inquiry', new_inquiry_path, class: 'list-group-item list-group-item-action' %> |
-  <% end %>
   <%= link_to 'Back', welcome_index_path, class: 'list-group-item list-group-item-action' %>
 </div>

@@ -1,12 +1,5 @@
 <% if admin? %>
   <h4><i class="fa fa-heart-o"></i>Admin Console</h4>
-
-  <p>
-    <%= link_to 'Create Realtor/House Hunter', new_user_path %>
-  </p>
-  <p>
-    <%= link_to 'Create Real Estate Company', new_real_estate_company_path %>
-  </p>
   <p>
     <%= link_to 'List Users', users_path %>
   </p>
@@ -39,9 +32,5 @@
   </p>
   <p>
     <%= link_to 'List Real Estate Companies', real_estate_companies_path %>
-  </p>
-
-  <p>
-    <%= link_to 'List Inquiries', inquiries_path%>
   </p>
 <% end %>
