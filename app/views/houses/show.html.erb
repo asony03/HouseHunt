@@ -13,9 +13,11 @@
                     <div class="row">
                       <span class="text-uppercase font-weight-bold" style="color: #cc0000">Realtor</span>
                     </div>
-                    <div class="row">
-                      <span><%= @house.user.name %></span>
-                    </div>
+                    <% if !@house.user.nil? %>
+                      <div class="row">
+                        <span><%= @house.user.name %></span>
+                      </div>
+                    <% end %>
                   </div>
                 </div>
             </li>
@@ -168,7 +170,7 @@
           <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px;">arrow_back_ios</i>
         <% end %>
       </div>
-      <% if admin? || (realtor? and current_user.id == @house.user_id)%>
+      <% if admin? || (realtor? and !@house.user.nil? and current_user.id == @house.user.id)%>
         <div class="p-2" style="width: 80px">
           <%= link_to edit_house_path(@house), class: 'list-group-item list-group-item-danger   list-group-item-action' do %>
             <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px;">edit</i>
@@ -216,8 +218,10 @@
             <p class="card-text">These are the list of house hunters that have shown interest in this house.</p>
           </div>
           <div class="list-group list-group-flush" align="center">
-            <% @potential_buyers.each do |buyer| %>
-              <%= link_to buyer.name, user_path(buyer.id), class: 'list-group-item list-group-item-action'  %>
+            <% if !@potential_buyer.nil? %>
+              <% @potential_buyers.each do |buyer| %>
+                <%= link_to buyer.name, user_path(buyer.id), class: 'list-group-item list-group-item-action'  %>
+              <% end %>
             <% end %>
           </div>
           <div class="list-group list-group-flush" style="background: #cc0000;height: 3px"></div>
