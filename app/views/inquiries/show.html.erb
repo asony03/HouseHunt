@@ -87,9 +87,9 @@
     <% end %>
   </div>
   <% if admin? || @inquiry.reply.nil? || @inquiry.reply.empty? %>
-    <div class="p-2" style="width: 80px">
+    <div class="p-2" style="width: 80px" data-toggle="tooltip" title="Reply" data-placement="bottom">
       <%= link_to edit_inquiry_path(@inquiry), class: 'list-group-item list-group-item-danger   list-group-item-action' do %>
-        <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px;">edit</i>
+        <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px;">reply</i>
       <% end %>
     </div>
   <% end %>

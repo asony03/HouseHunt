@@ -24,13 +24,13 @@
               </div>
               <div class="form-row">
                 <div class="actions">
-                  <%= f.submit "Log in", class: "btn btn-primary" %>
+                  <%= f.submit "Log in", class: "btn btn-danger" %>
                 </div>
               </div>
             <% end %>
           </div>
           <br>
-          <p>New user? <%= link_to "Sign up now!", sign_up_new_path %></p>
+          <p>New user? <%= link_to "Sign up now!", sign_up_new_path, style: 'color: red' %></p>
         <% end %>
       </div>
     </div>
