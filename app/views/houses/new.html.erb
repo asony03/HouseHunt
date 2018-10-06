@@ -1,5 +1,22 @@
-<h4>New House</h4>
-
-<%= render 'form', house: @house %>
-
-<%= link_to 'Back', houses_path %>
+<br>
+<h1 class="font-weight-light" align="center">New House</h1>
+<br>
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <div class="card">
+      <div style="padding: 30px">
+        <%= render 'form', house: @house %>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="col-md-8 offset-md-2">
+  <div class="d-flex flex-row" style="text-align: center">
+    <div class="p-2" style="width: 73px">
+      <%= link_to houses_path, class: 'list-group-item list-group-item-danger list-group-item-action' do %>
+        <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px;">arrow_back_ios</i>
+      <% end %>
+    </div>
+  </div>
+</div>

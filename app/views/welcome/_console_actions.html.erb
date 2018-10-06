@@ -58,21 +58,8 @@
 <% end %>
 
 <% if realtor? %>
-  <%#= image_tag 'realtor.jpg', class: 'img-fluid', style: 'margin-top: -24px' %>
-<!--  <br><br>-->
+
   <div class="row justify-content-md-center">
-    <div class="col-md-3">
-      <%= link_to users_path, class: 'link-no-dec' do %>
-        <div class="card icon-card">
-          <div class="card-body">
-            <br>
-            <p style="text-align: center"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 90px;margin-top: 20px">people</i></p>
-            <p class="font-weight-light" style="text-align: center;font-size: 30px;margin-top: -20px">Users</p>
-            <br>
-          </div>
-        </div>
-      <% end %>
-    </div>
 
     <div class="col-md-3">
       <%= link_to real_estate_companies_path, class: 'link-no-dec' do %>
@@ -92,6 +79,19 @@
             <br>
             <p style="text-align: center"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 90px;margin-top: 20px">home</i></p>
             <p class="font-weight-light" style="text-align: center;font-size: 30px;margin-top: -20px">Houses</p>
+            <br>
+          </div>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="col-md-3">
+      <%= link_to inquiries_path, class: 'link-no-dec' do %>
+        <div class="card icon-card">
+          <div class="card-body">
+            <br>
+            <p style="text-align: center"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 90px;margin-top: 20px">chat</i></p>
+            <p class="font-weight-light" style="text-align: center;font-size: 30px;margin-top: -20px">Inquiries</p>
             <br>
           </div>
         </div>

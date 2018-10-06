@@ -29,7 +29,7 @@
     </div>
 
     <div class="form-group col-md-2">
-      <%= form.label :square_footage %>
+      <%= form.label :Area %>
       <%= form.text_field :sq_ft, class: 'form-control' %>
     </div>
 
@@ -61,25 +61,28 @@
     </div>
   </div>
 
-  <% if(admin?) %>
-    <div class="form-group">
-      <%= form.label :real_estate_company%>
-      <%= form.collection_select(:real_estate_company_id, @real_estate_companies, :id, :name) %>
+  <div class="form-row">
+    <% if(admin?) %>
+      <div class="form-group col-md-6">
+        <%= form.label :real_estate_company%>
+        <%= form.collection_select(:real_estate_company_id, @real_estate_companies, :id, :name, {}, {class: 'form-control'}) %>
+      </div>
+    <% end %>
+    <div class="form-group col-md-6">
+      <%= form.label :images %>
+      <%= form.file_field :images, multiple: true, direct_upload: true, class: 'form-control' %>
     </div>
-  <% end %>
-
-  <div class="form-group">
-    <%= form.label :basement %> &nbsp;
-    <%= form.check_box :basement, class: 'checkbox-inline' %>
   </div>
 
-  <div class="form-group">
-    <%= form.label :images %>
-    <%= form.file_field :images, multiple: true, direct_upload: true, class: 'form-control' %>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <%= form.label :basement %> &nbsp;
+      <%= form.check_box :basement, class: 'checkbox-inline' %>
+    </div>
   </div>
 
   <br>
   <div class="actions">
-    <%= form.submit 'Save', class: 'btn btn-primary' %>
+    <%= form.submit 'Save', class: 'btn btn-danger' %>
   </div>
 <% end %>
