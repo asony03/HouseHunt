@@ -5,8 +5,8 @@
         <%= form_for(:session, url: login_path) do |f| %>
           <% provide(:title, "Log in") %>
           <br>
-          <img src="<%= image_path 'logo.png' %>" height="50" class="d-inline-block align-top" alt="">
-          <h1>House Hunt</h1>
+          <img src="<%= image_path 'logo_bk.png' %>" height="50" class="d-inline-block align-top" alt="">
+          <h1 style="color: #de6868">HouseHunt</h1>
           <br>
           <div style="padding-left: 20px;padding-right: 20px">
             <%= form_for(:session, url: login_path) do |f| %>
@@ -24,13 +24,13 @@
               </div>
               <div class="form-row">
                 <div class="actions">
-                  <%= f.submit "Log in", class: "btn btn-primary" %>
+                  <%= f.submit "Log in", class: "btn btn-danger" %>
                 </div>
               </div>
             <% end %>
           </div>
           <br>
-          <p>New user? <%= link_to "Sign up now!", sign_up_new_path %></p>
+          <p>New user? <%= link_to "Sign up now!", sign_up_new_path, style: 'color: red' %></p>
         <% end %>
       </div>
     </div>

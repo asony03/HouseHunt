@@ -1,10 +1,12 @@
 <i class="material-icons mr-1" style="vertical-align: bottom;font-size: 48px;">home</i>
 <span style="font-size: xx-large">Houses</span>
 <br><br>
-<%#= render 'filter' %>
 <%= render 'filter' %>
+
+<br>
+
 <table class="table">
-  <thead class="thead-light">
+  <thead class="table-danger">
     <tr>
       <th>Name</th>
       <th>Real Estate Company</th>
@@ -30,19 +32,36 @@
         <td><%= house.sq_ft %></td>
         <td><%= house.year %></td>
         <td><%= house.price %></td>
-        <td><%= link_to 'Show', house %></td>
-        <% if admin? or (realtor? and (current_user.id == house.user_id)) %><td><%= link_to 'Destroy', house, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
+        <td>
+          <%= link_to house do%>
+            <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px; color: #de6868">remove_red_eye</i>
+          <% end %>
+        </td>
+        <% if admin? or (realtor? and (current_user.id == house.user_id)) %>
+          <td>
+            <%= link_to house, method: :delete, data: { confirm: 'Are you sure?' } do%>
+              <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px; color: #de6868">delete</i>
+            <% end %>
+          </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-<div class="list-group mx-auto" style="width: 200px; text-align: center">
+<div class="d-flex flex-row" style="width: 250px; text-align: center">
+  <div class="p-2" style="width: 73px">
+    <%= link_to welcome_index_path, class: 'list-group-item list-group-item-danger list-group-item-action' do %>
+      <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px;">arrow_back_ios</i>
+    <% end %>
+  </div>
   <% if admin? or (realtor? and !current_user.real_estate_company_id.nil?) %>
-    <%= link_to 'Add New House', new_house_path, class: 'list-group-item list-group-item-action' %>
+    <div class="p-2" style="width: 80px" data-toggle="tooltip" title="Reply" data-placement="bottom">
+      <%= link_to new_house_path, class: 'list-group-item list-group-item-danger   list-group-item-action' do %>
+        <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px;">add</i>
+      <% end %>
+    </div>
   <% elsif !house_hunter? %>
     <p><i>To add a new House, please add a Real Estate Company on your profile</i></p>
   <% end %>
-  <%= link_to 'Back', welcome_index_path, class: 'list-group-item list-group-item-action' %>
 </div>

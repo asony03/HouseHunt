@@ -1,51 +1,122 @@
-<p id="notice"><%= notice %></p>
+<span class="font-weight-light" style="font-size: 40pt;"><%= @user.name %></span>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<div class="card" style="width: 30rem;">
+  <ul class="list-group list-group-flush">
+    <div class="list-group list-group-flush" style="background: #cc0000;height: 3px"></div>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+    <li class="list-group-item pl-4">
+      <div class="d-flex flex-row">
+        <div class="p-2" style="color: #cc0000"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 24px;">email</i></div>
+        <div class="p-2">
+          <div class="row">
+            <span class="text-uppercase font-weight-bold" style="color: #cc0000">Email</span>
+          </div>
+          <div class="row">
+            <span><%= @user.email %></span>
+          </div>
+        </div>
+      </div>
+    </li>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @user.phone %>
-</p>
+    <li class="list-group-item pl-4">
+      <div class="d-flex flex-row">
+        <div class="p-2" style="color: #cc0000"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 24px;">phone</i></div>
+        <div class="p-2">
+          <div class="row">
+            <span class="text-uppercase font-weight-bold" style="color: #cc0000">Phone</span>
+          </div>
+          <div class="row">
+            <span><%= @user.phone %></span>
+          </div>
+        </div>
+      </div>
+    </li>
 
-<p>
-  <strong>Preferred contact method:</strong>
-  <%= @user.preferred_contact_method %>
-</p>
+    <li class="list-group-item pl-4">
+      <div class="d-flex flex-row">
+        <div class="p-2" style="color: #cc0000"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 24px;">contacts</i></div>
+        <div class="p-2">
+          <div class="row">
+            <span class="text-uppercase font-weight-bold" style="color: #cc0000">Preferred contact</span>
+          </div>
+          <div class="row">
+            <span><%= @user.preferred_contact_method %></span>
+          </div>
+        </div>
+      </div>
+    </li>
 
-<% if admin? %>
-  <p>
-    <strong>Is realtor:</strong>
-    <%= @user.is_realtor %>
-  </p>
+    <li class="list-group-item pl-4">
+      <div class="d-flex flex-row">
+        <div class="p-2" style="color: #cc0000"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 24px;">face</i></div>
+        <div class="p-2">
+          <div class="row">
+            <span class="text-uppercase font-weight-bold" style="color: #cc0000">Role</span>
+          </div>
+          <div class="row">
+            <span>
+              <%= @user.is_admin? ? 'Admin' : '' %>
+              <% if !@user.is_admin? %>
+                <%= @user.is_realtor ? (@user.is_house_hunter ? 'Realtor and ' :'Realtor ') : '' %>
+                <%= @user.is_house_hunter ? 'House Hunter' : '' %>
+              <% end %>
+            </span>
+          </div>
+        </div>
+      </div>
+    </li>
 
-  <p>
-    <strong>Is house hunter:</strong>
-    <%= @user.is_house_hunter %>
-  </p>
-<% end %>
-
-<% if !@user.real_estate_company.nil? %>
-  <p>
-    <strong>Real Estate Company:</strong>
-    <%= @user.real_estate_company.name %>
-  </p>
-<% end %>
-
-
-<% if logged_in? %>
-  <% if ( @user.id == current_user.id ) %>
-  <%= link_to 'Edit', edit_user_path(@user) %> |
+    <% if @user.is_realtor? %>
+      <li class="list-group-item pl-4">
+      <div class="d-flex flex-row">
+        <div class="p-2" style="color: #cc0000"><i class="material-icons mr-1" style="vertical-align: bottom;font-size: 24px;">business</i></div>
+        <div class="p-2">
+          <div class="row">
+            <span class="text-uppercase font-weight-bold" style="color: #cc0000">Real Estate Company</span>
+          </div>
+          <div class="row">
+              <span><%= @user.real_estate_company.name %></span>
+          </div>
+        </div>
+      </div>
+      </li>
     <% end %>
-  <% path = realtor? || house_hunter? ? (( @user.id == current_user.id) ? welcome_index_path : :back) : (admin? ? :users : :back) %>
-  <%= link_to 'Back', path %>
-<% else %>
-  <%= link_to 'Login', login_path %>
+
+  </ul>
+</div>
+
+<% if !notice.nil? %>
+  <br>
+  <div class="row ml-2" style="margin-bottom: -25px">
+    <div class="alert alert-success" role="alert">
+      <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px;">check_circle</i><%= notice %>
+      <button type="button" class="close ml-3" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </div>
 <% end %>
+
+<br>
+
+<div class="d-flex flex-row" style="width: 250px; text-align: center">
+  <% if logged_in? %>
+    <div class="p-2" style="width: 73px">
+      <% path = realtor? || house_hunter? ? (( @user.id == current_user.id) ? welcome_index_path : :back) : (admin? ? :users : :back) %>
+      <%= link_to path, class: 'list-group-item list-group-item-danger list-group-item-action' do %>
+        <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px;">arrow_back_ios</i>
+      <% end %>
+    </div>
+    <% if ( @user.id == current_user.id ) %>
+      <div class="p-2" style="width: 80px">
+        <%= link_to edit_user_path(@user), class: 'list-group-item list-group-item-danger   list-group-item-action' do %>
+          <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px;">edit</i>
+        <% end %>
+      </div>
+    <% end %>
+  <% else %>
+    <%= link_to login_path, class: 'list-group-item list-group-item-danger list-group-item-action' do %>
+      <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px;">input</i>
+    <% end %>
+  <% end %>
+</div>

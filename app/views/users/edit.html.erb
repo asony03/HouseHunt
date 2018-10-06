@@ -1,5 +1,22 @@
-<h1>Editing User</h1>
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <h1 class="font-weight-light">Editing User</h1>
+    <br>
+    <div class="card">
+      <div style="padding: 30px" align="center">
+        <%= render 'form', user: @user %>
+      </div>
+    </div>
+  </div>
+</div>
 
-<%= render 'form', user: @user %>
 <% path = realtor? ? (( @user.id == current_user.id) ? user_path : :back) : :back %>
-<%= link_to 'Cancel', path %>
+<div class="col-md-8 offset-md-2">
+  <div class="d-flex flex-row" style="text-align: center">
+    <div class="p-2" style="width: 73px">
+      <%= link_to path, class: 'list-group-item list-group-item-danger list-group-item-action' do %>
+        <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px;">arrow_back_ios</i>
+      <% end %>
+    </div>
+  </div>
+</div>

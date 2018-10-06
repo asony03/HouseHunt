@@ -13,3 +13,46 @@
  */
 
 @import "bootstrap";
+
+.icon-card {
+   color: #de6868;
+}
+
+.lightbg{
+  background: lighten(#de6868,34%);
+}
+
+.icon-card:hover {
+  color: darken(#de6868, 5%);
+  background: lighten(#de6868,34%);
+}
+
+.link-no-dec:hover{
+  text-decoration: none;
+}
+/*
+.btn-primary{
+	background: #de6868;
+	border: darken(#de6868, 5%)
+}
+.btn-primary:hover{
+	background: darken(#de6868, 5%);
+	border: darken(#de6868, 5%)
+}
+.btn-primary:focus{
+	background: darken(#de6868, 5%);
+	border: darken(#de6868, 5%)
+}
+.btn-primary:active:{
+	background: darken(#de6868, 5%);
+	border: darken(#de6868, 5%)
+}
+a{
+	color: #de6868;
+}
+a:hover{
+	color: darken(#de6868, 5%);
+	text-decoration: none;
+}
+
+$brand-color: #de6868;*/

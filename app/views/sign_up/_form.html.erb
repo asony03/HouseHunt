@@ -1,51 +1,59 @@
 <%= form_with(model: user, local: true) do |form| %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name %>
+  <div class="form-row" align="left">
+    <div class="form-group col-md-6">
+       <%= form.label :name %>
+       <%= form.text_field :name, class: 'form-control' %>
+     </div>
+    <div class="form-group col-md-6">
+      <%= form.label :email %>
+      <%= form.text_field :email, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+  <div class="form-row" align="left">
+    <div class="form-group col-md-6">
+      <%= form.label :password %>
+      <%= form.password_field :password, class: 'form-control' %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= form.label :password_confirmation %>
+      <%= form.password_field :password_confirmation, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
+  <div class="form-row" align="left">
+    <div class="form-group col-md-6">
+      <%= form.label :phone %>
+      <%= form.text_field :phone, class: 'form-control' %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= form.label :preferred_contact_method %>
+      <%= form.text_field :preferred_contact_method, class: 'form-control' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
+  <div class="form-row" align="left">
+    <div class="form-check col-md-6">
+      <%= form.check_box :is_realtor, class: 'form-control form-check-input' %>
+      <%= form.label :is_realtor, class: 'form-check-label' %>
+    </div>
+    <div class="form-group col-md-6">
+      <%= form.check_box :is_house_hunter, class: 'form-control form-check-input' %>
+      <%= form.label :is_house_hunter, class: 'form-check-label' %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :phone %>
-    <%= form.text_field :phone %>
-  </div>
-
-  <div class="field">
-    <%= form.label :preferred_contact_method %>
-    <%= form.text_field :preferred_contact_method %>
-  </div>
-
-  <div class="field">
-    <%= form.label :is_realtor %>
-    <%= form.check_box :is_realtor %>
-  </div>
-
-  <div class="field">
-    <%= form.label :is_house_hunter %>
-    <%= form.check_box :is_house_hunter %>
-  </div>
-
-  <div class="field">
-    <%= form.label :real_estate_company%>
-    <%= form.collection_select(:real_estate_company_id, @real_estate_companies, :id, :name, :include_blank => true) %>
+  <div class="form-row" align="left">
+    <div class="form-group col-md-3">
+      <%= form.label :real_estate_company, class: 'col-form-label'%>
+    </div>
+    <div class="form-group col-md-4">
+      <%= form.collection_select(:real_estate_company_id, @real_estate_companies, :id, :name, {}, {class: 'form-control'}) %>
+    </div>
   </div>
 
   <div class="actions">
-    <%= form.submit "Sign Up"%>
-  </div>
+      <%= form.submit "Sign Up", class: "btn btn-danger" %>
+    </div>
 <% end %>
