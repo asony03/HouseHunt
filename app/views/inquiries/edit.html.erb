@@ -1,7 +1,21 @@
-<h1>Resolve Inquiry</h1>
-
-<%= render 'form', inquiry: @inquiry %>
-
-<div class="list-group mx-auto" style="width: 200px; text-align: center">
-  <%= link_to 'Back', inquiry_path, class: 'list-group-item list-group-item-action' %>
+<h1 class="font-weight-light" align="center">Resolve Inquiry</h1>
+<br>
+<div class="row">
+  <div class="col-md-8 offset-md-2">
+    <div class="card">
+      <div style="padding: 30px">
+        <%= render 'form', inquiry: @inquiry %>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="col-md-8 offset-md-2">
+  <div class="d-flex flex-row" style="text-align: center">
+    <div class="p-2" style="width: 73px">
+      <%= link_to inquiry_path, class: 'list-group-item list-group-item-danger list-group-item-action' do %>
+        <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px;">arrow_back_ios</i>
+      <% end %>
+    </div>
+  </div>
 </div>
