@@ -13,6 +13,23 @@
  */
 
 @import "bootstrap";
+
+.icon-card {
+   color: #de6868;
+}
+
+.lightbg{
+  background: lighten(#de6868,34%);
+}
+
+.icon-card:hover {
+  color: darken(#de6868, 5%);
+  background: lighten(#de6868,34%);
+}
+
+.link-no-dec:hover{
+  text-decoration: none;
+}
 /*
 .btn-primary{
 	background: #de6868;

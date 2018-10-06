@@ -3,7 +3,7 @@
 <br><br>
 
 <table class="table">
-  <thead class="thead-light">
+  <thead class="table-danger">
     <tr>
       <th>Name</th>
       <th>Email</th>
@@ -18,17 +18,37 @@
         <td><%= user.name %></td>
         <td><%= user.email %></td>
         <td><%= user.phone %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
+        <td>
+          <%= link_to user do%>
+            <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px; color: #de6868">remove_red_eye</i>
+          <% end %>
+        </td>
+        <td>
+          <%= link_to edit_user_path(user) do%>
+            <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px; color: #de6868">edit</i>
+          <% end %>
+        </td>
         <% if user.id != current_user.id %>
-          <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td>
+            <%= link_to user, method: :delete, data: { confirm: 'Are you sure?' } do%>
+              <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px; color: #de6868">delete</i>
+            <% end %>
+          </td>
         <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New User', new_user_path %> |
-<%= link_to 'Back', welcome_index_path %>
+<div class="d-flex flex-row" style="width: 250px; text-align: center">
+  <div class="p-2" style="width: 73px">
+    <%= link_to welcome_index_path, class: 'list-group-item list-group-item-danger list-group-item-action' do %>
+      <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px;">arrow_back_ios</i>
+    <% end %>
+  </div>
+  <div class="p-2" style="width: 80px" data-toggle="tooltip" title="Reply" data-placement="bottom">
+    <%= link_to new_user_path, class: 'list-group-item list-group-item-danger   list-group-item-action' do %>
+      <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px;">add</i>
+    <% end %>
+  </div>
+</div>

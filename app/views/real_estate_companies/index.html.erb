@@ -3,7 +3,7 @@
 <br><br>
 
 <table class="table">
-  <thead class="thead-light">
+  <thead class="table-danger">
     <tr>
       <th>Name</th>
       <th>Website</th>
@@ -27,18 +27,34 @@
         <td><%= real_estate_company.founded %></td>
         <td><%= real_estate_company.revenue %></td>
         <td><%= real_estate_company.synopsis %></td>
-        <td><%= link_to 'Show', real_estate_company %></td>
-        <% if !house_hunter? and !realtor? %><td><%= link_to 'Destroy', real_estate_company, method: :delete, data: { confirm: 'Are you sure?' } %></td><% end %>
+        <td>
+          <%= link_to real_estate_company do%>
+            <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px; color: #de6868">remove_red_eye</i>
+          <% end %>
+        </td>
+        <% if !house_hunter? and !realtor? %>
+          <td>
+            <%= link_to real_estate_company, method: :delete, data: { confirm: 'Are you sure?' } do%>
+              <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px; color: #de6868">delete</i>
+            <% end %>
+          </td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<div class="list-group mx-auto" style="width: 300px; text-align: center">
+<div class="d-flex flex-row" style="width: 250px; text-align: center">
+  <div class="p-2" style="width: 73px">
+    <%= link_to welcome_index_path, class: 'list-group-item list-group-item-danger list-group-item-action' do %>
+      <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px;">arrow_back_ios</i>
+    <% end %>
+  </div>
   <% if !house_hunter? %>
-  <%= link_to 'New Real Estate Company', new_real_estate_company_path, class: 'list-group-item list-group-item-action' %>
+    <div class="p-2" style="width: 80px" data-toggle="tooltip" title="Reply" data-placement="bottom">
+      <%= link_to new_real_estate_company_path, class: 'list-group-item list-group-item-danger   list-group-item-action' do %>
+        <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px;">add</i>
+      <% end %>
+    </div>
   <% end %>
-  <%= link_to 'Back', welcome_index_path, class: 'list-group-item list-group-item-action' %>
 </div>

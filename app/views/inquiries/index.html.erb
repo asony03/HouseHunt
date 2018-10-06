@@ -2,9 +2,9 @@
 <span style="font-size: xx-large">Inquiries</span>
 <br><br>
 
-<h4>Pending Inquiries</h4>
+<h4 class="font-weight-light" >Pending Inquiries</h4>
 <table class="table">
-  <thead class="thead-light">
+  <thead class="table-danger">
     <tr>
       <th width="20%">User</th>
       <th width="20%">House</th>
@@ -23,8 +23,18 @@
           <td><%= inquiry.house.name %></td>
           <td><%= inquiry.subject %></td>
           <td><%= inquiry.created_at %></td>
-          <td><%= link_to 'Show', inquiry %></td>
-          <% if admin? %><td><%= link_to 'Destroy', inquiry, method: :delete, data: { confirm: 'Are you sure?' } %></td> <% end %>
+          <td>
+            <%= link_to inquiry do%>
+              <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px; color: #de6868">remove_red_eye</i>
+            <% end %>
+          </td>
+          <% if admin? %>
+            <td>
+              <%= link_to inquiry, method: :delete, data: { confirm: 'Are you sure?' } do%>
+                <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px; color: #de6868">delete</i>
+              <% end %>
+            </td>
+          <% end %>
         </tr>
       <% end %>
     <% end %>
@@ -33,9 +43,9 @@
 
 <br>
 
-<h4 >Resolved Inquiries</h4>
+<h4 class="font-weight-light" >Resolved Inquiries</h4>
 <table class="table">
-  <thead class="thead-light">
+  <thead class="table-danger">
   <tr>
     <th width="20%">User</th>
     <th width="20%">House</th>
@@ -56,10 +66,22 @@
         <td><%= inquiry.house.name %></td>
         <td><%= inquiry.subject %></td>
         <td><%= inquiry.created_at %></td>
-        <td><%= link_to 'Show', inquiry %></td>
+        <td>
+          <%= link_to inquiry do%>
+            <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px; color: #de6868">remove_red_eye</i>
+          <% end %>
+        </td>
         <% if admin? %>
-          <td><%= link_to 'Edit', edit_inquiry_path(inquiry) %></td>
-          <td><%= link_to 'Destroy', inquiry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td>
+            <%= link_to edit_inquiry_path(inquiry) do%>
+              <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px; color: #de6868">edit</i>
+            <% end %>
+          </td>
+          <td>
+            <%= link_to inquiry, method: :delete, data: { confirm: 'Are you sure?' } do%>
+              <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px; color: #de6868">delete</i>
+            <% end %>
+          </td>
         <% end %>
       </tr>
     <% end %>
@@ -67,8 +89,10 @@
   </tbody>
 </table>
 
-<br>
-
-<div class="list-group mx-auto" style="width: 200px; text-align: center">
-  <%= link_to 'Back', welcome_index_path, class: 'list-group-item list-group-item-action' %>
+<div class="d-flex flex-row" style="width: 250px; text-align: center">
+  <div class="p-2" style="width: 73px">
+    <%= link_to welcome_index_path, class: 'list-group-item list-group-item-danger list-group-item-action' do %>
+      <i class="material-icons mr-3" style="vertical-align: bottom;font-size: 24px;">arrow_back_ios</i>
+    <% end %>
+  </div>
 </div>

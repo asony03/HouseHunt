@@ -13,7 +13,6 @@ class User < ApplicationRecord
   has_secure_password
   validates :password, presence: true, allow_nil: true
 
-
   ROLE_HOUSE_HUNTER = 1
   ROLE_REALTOR = 2
   ROLE_ADMIN = 3
