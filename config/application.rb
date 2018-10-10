@@ -16,6 +16,15 @@ module HouseHunt
     # -- all .rb files in that directory are automatically loaded after loading
     # the framework and any gems in your application.
 
-    config.action_mailer.default_url_options = { host: "househunt.com" }
+    config.action_mailer.default_url_options = { host: 'frozen-savannah-83967.herokuapp.com' }
+
+    config.before_configuration do 
+      env_file = File.join(Rails.root, 'config', 'application.yml')
+      if File.exists?(env_file)
+        YAML.load(File.open(env_file)).each do |key, value| 
+          ENV[key.to_s] = value.to_s 
+        end
+      end 
+    end
   end
 end
