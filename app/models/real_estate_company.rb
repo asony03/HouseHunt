@@ -1,6 +1,6 @@
 class RealEstateCompany < ApplicationRecord
-  has_many :users
-  has_many :houses
+  has_many :users, dependent: :delete_all
+  has_many :houses, dependent: :delete_all
 
   validates :name, presence: true, length: { maximum: 50 }
   #validates :url, format: URI.regexp(%w[http https])
