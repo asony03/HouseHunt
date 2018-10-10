@@ -2,8 +2,8 @@ class House < ApplicationRecord
   has_many_attached :images
   belongs_to :real_estate_company, optional: true
   belongs_to :user
-  has_many :inquiries
-  has_many :potential_buyers
+  has_many :inquiries, dependent: :destroy
+  has_many :potential_buyers, dependent: :destroy
 
   validates :name, :location, :owner, :contact, presence: true
   validates :year, :floors, :price, :sq_ft, presence: true, numericality: true

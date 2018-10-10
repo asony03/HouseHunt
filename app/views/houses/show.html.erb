@@ -218,7 +218,7 @@
             <p class="card-text">These are the list of house hunters that have shown interest in this house.</p>
           </div>
           <div class="list-group list-group-flush" align="center">
-            <% if !@potential_buyer.nil? %>
+            <% if !@potential_buyers.nil? %>
               <% @potential_buyers.each do |buyer| %>
                 <%= link_to buyer.name, user_path(buyer.id), class: 'list-group-item list-group-item-action'  %>
               <% end %>

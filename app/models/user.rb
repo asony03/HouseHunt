@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   belongs_to :real_estate_company, optional: true
-  has_many :houses # realtor is associated with houses
-  has_many :inquiries
-  has_many :potential_buyers
+  has_many :houses, dependent: :destroy
+  has_many :inquiries, dependent: :destroy
+  has_many :potential_buyers, dependent: :destroy
 
   before_save { self.email = email.downcase }
   validates :name, presence: true, length: { maximum: 50 }
