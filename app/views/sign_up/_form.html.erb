@@ -51,6 +51,11 @@
     <div class="form-group col-md-4">
       <%= form.collection_select(:real_estate_company_id, @real_estate_companies, :id, :name, {}, {class: 'form-control'}) %>
     </div>
+    <div class="form-group col-md-5">
+      <label class="col-form-label">
+        <i>Valid only for realtor</i>
+      </label>
+    </div>
   </div>
 
   <div class="actions">
