@@ -26,9 +26,11 @@
       <tr>
         <td><%= house.name %></td>
         <td><%= house.real_estate_company.name %></td>
-        <% if !house.user.nil? %>
-          <td><%= house.user.name %></td>
-        <% end %>
+        <td>
+          <% if !house.user.nil? %>
+            <%= house.user.name %>
+          <% end %>
+        </td>
         <td><%= house.house_style %></td>
         <td><%= house.location %></td>
         <td><%= house.sq_ft %></td>
