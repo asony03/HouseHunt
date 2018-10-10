@@ -1,13 +1,26 @@
-App URL : https://frozen-savannah-83967.herokuapp.com/
+## HouseHunt
+##### Application URL
+https://frozen-savannah-83967.herokuapp.com/
 
-Default Admin Credentials: admin1@example.com/admin
+##### Roles
+The various user roles are:
++ Admin
++ Realtor
++ House Hunter
 
-How to switch roles?
+There is only a single admin in the application (which is pre-configured). Any number of realtors and house hunters can signup using the Signup page. 
+##### Default Admin Credentials
+admin1@example.com/admin
+
+##### How to switch roles?
 Roles can be switched only if a user signs up as both, Realtor and House Hunter. To switch roles, the user has to click on his name on the navigation panel and select 'Switch to Realtor/House Hunter'
 
-How to sign up as a realtor and house hunter with the same email?
+##### How to sign up as a realtor and house hunter with the same email?
 During sign up, check both the checkboxes (Is realtor and Is house hunter). If you do this, you get role the switch functionality explained above.
 
-While creating a house hunter, please use a valid email id that can be accessed so as to check the email functionality when a realtor replies to an inquiry. Also be sure to check your spam folder for the email.
+##### How to receive email when a Realtor replies to your inquiries?
+While creating a house hunter, use a valid email id that can be accessed so as to check the email functionality when a realtor replies to an inquiry. Also be sure to check your spam folder for the email.
+
+***
 
 All other functionalities should be self explanatory.
