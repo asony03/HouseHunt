@@ -24,7 +24,11 @@
               <%= inquiry.user.name %>
             <% end %>
           </td>
-          <td><%= inquiry.house.name %></td>
+          <td>
+            <% if !inquiry.house.nil? %>
+              <%= inquiry.house.name %>
+            <% end %>
+          </td>
           <td><%= inquiry.subject %></td>
           <td><%= inquiry.created_at %></td>
           <td>
@@ -71,7 +75,11 @@
             <%= inquiry.user.name %>
           <% end %>
         </td>
-        <td><%= inquiry.house.name %></td>
+        <td>
+          <% if !inquiry.house.nil? %>
+            <%= inquiry.house.name %>
+          <% end %>
+        </td>
         <td><%= inquiry.subject %></td>
         <td><%= inquiry.created_at %></td>
         <td>
