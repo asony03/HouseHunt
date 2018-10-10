@@ -59,6 +59,9 @@ class InquiriesController < ApplicationController
       if @inquiry.update(inquiry_params)
         format.html { redirect_to @inquiry, notice: 'Inquiry was successfully updated.' }
         format.json { render :show, status: :ok, location: @inquiry }
+        if !@inquiry.reply.nil? && !@inquiry.reply.empty?
+          InquiryNotifierMailer.reply(@inquiry).deliver_now
+        end
       else
         format.html { render :edit }
         format.json { render json: @inquiry.errors, status: :unprocessable_entity }
