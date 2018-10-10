@@ -14,8 +14,8 @@ class House < ApplicationRecord
       query=""
       query_params=Hash.new
       if(params[:location]!='')
-        query=query+"location LIKE :location"
-        query_params[:location] = "%#{params[:location]}%"
+        query=query+"lower(location) LIKE :location"
+        query_params[:location] = "%#{params[:location].downcase}%"
       end
       if(params[:start_price]!='' and params[:end_price]!='')
         if(query!="")
