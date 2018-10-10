@@ -4,6 +4,6 @@ class InquiryNotifierMailer < ApplicationMailer
 
   def reply(inquiry)
     @inquiry = inquiry
-    mail(to: inquiry.user.email)
+    mail to: inquiry.user.email, subject: 'Reply for Inquiry'
   end
 end

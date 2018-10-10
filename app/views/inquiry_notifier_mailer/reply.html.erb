@@ -1,16 +1,30 @@
-
 <p>Hi <%= @inquiry.user.name %>,</p>
 
-<br>
-
 <p>A realtor has replied to your inquiry. Please click <a href="<%= login_url %>">here</a> to login to HouseHunt to view the reply.</p>
-
 <br>
+<table width="400px" style="border: solid 1px grey; margin-left: 30px">
+  <tr style="height: 3px; background: #de6868"><td></td></tr>
+  <tr>
+    <td>
+      <table>
+        <tr>
+          <td style="padding: 15px; vertical-align: top"><b>Subject</b></td>
+          <td style="padding: 15px;"><%= @inquiry.subject %></td>
+        </tr>
+        <tr>
+          <td style="padding: 15px; vertical-align: top"><b>Message</b></td>
+          <td style="padding: 15px"><%= @inquiry.msg %></td>
+        </tr>
+        <tr>
+          <td style="padding: 15px; vertical-align: top"><b>Reply</b></td>
+          <td style="padding: 15px"><%= @inquiry.reply %></td>
+        </tr>
+      </table>
+    </td>
+  </tr>
+  <tr style="height: 3px; background: #de6868"><td></td></tr>
+</table>
 
-<p>
-  <span style="padding-left: 30px">
-    <%= image_tag 'logo_bk.png', width: 50 %>
-  </span>
-  <br>
-  Team HouseHunt
-</p>
+<br><br>
+Team HouseHunt
+
