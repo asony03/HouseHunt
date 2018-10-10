@@ -1,3 +1,5 @@
+App URL : https://frozen-savannah-83967.herokuapp.com/
+
 Default Admin Credentials: admin1@example.com/admin
 
 How to switch roles?
