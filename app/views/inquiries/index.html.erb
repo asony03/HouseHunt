@@ -64,7 +64,9 @@
   <% @inquiries.each do |inquiry| %>
     <% if !inquiry.reply.nil? && !inquiry.reply.empty? %>
       <tr>
-        <td><%= inquiry.user.name %></td>
+        <% if !inquiry.user.nil? %>
+          <td><%= inquiry.user.name %></td>
+        <% end %>
         <td><%= inquiry.house.name %></td>
         <td><%= inquiry.subject %></td>
         <td><%= inquiry.created_at %></td>
