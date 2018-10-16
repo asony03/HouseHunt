@@ -21,6 +21,9 @@ During sign up, check both the checkboxes (Is realtor and Is house hunter). If y
 ##### How to receive email when a Realtor replies to your inquiries?
 While creating a house hunter, use a valid email id that can be accessed so as to check the email functionality when a realtor replies to an inquiry. Also be sure to check your spam folder for the email.
 
+##### Corner cases handling
+When a real esate company is deleted, all the houses as well as the realtors associated with the company is deleted. With the deletion of a house, the inquiries as well as the potential buyers list is also cleared.
+
 ***
 
 All other functionalities should be self explanatory.
