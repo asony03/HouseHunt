@@ -10,7 +10,7 @@ The various user roles are:
 
 There is only a single admin in the application (which is pre-configured). Any number of realtors and house hunters can signup using the Signup page. 
 ##### Default Admin Credentials
-admin1@example.com/admin
+admin2@example.com/admin
 
 ##### How to switch roles?
 Roles can be switched only if a user signs up as both, Realtor and House Hunter. To switch roles, the user has to click on his name on the navigation panel and select 'Switch to Realtor/House Hunter'
