@@ -1,4 +1,4 @@
 api_key: '97dd353fac13d0ed7b8bc61cbc7539e5-bd350f28-c1c2c2d7'
-username: 'apikey'
-password: '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'
+username: [email_client_username]
+password: [email_client_password]
 address: 'smtp.sendgrid.net'
