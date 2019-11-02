@@ -1,6 +1,4 @@
 ## HouseHunt
-##### Application URL
-https://frozen-savannah-83967.herokuapp.com/
 
 ##### Roles
 The various user roles are:
